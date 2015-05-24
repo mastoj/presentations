@@ -35,7 +35,7 @@ module Types =
         }
     type Offer = Entity<OfferState>
 
-module OfferType = 
+module internal OfferType = 
     open Types
     let CalculateExpirationDate offerType = 
         let fixedExpirationCalculation ot =
@@ -50,7 +50,7 @@ module OfferType =
         | FixedExpiration _ -> fixedExpirationCalculation offerType
         | AssignmentExpiration _ -> assignmentExpirationCalculation offerType
 
-module Member = 
+module internal Member = 
     open Types
     open OfferType
     let FullName m = sprintf "%s %s" m.FirstName m.LastName
