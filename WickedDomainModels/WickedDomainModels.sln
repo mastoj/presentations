@@ -1,9 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Before", "Before\Before.csproj", "{51D226B4-59B6-4BBA-A28A-66EF2DF71078}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "After", "After\After.csproj", "{E6ACF2E0-55C8-4A11-AD9B-CD4C2E599C2A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Wicked", "After\FSharp.Wicked\FSharp.Wicked.fsproj", "{FD6D3C08-8149-46CD-8957-A72AD23C2515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{E6ACF2E0-55C8-4A11-AD9B-CD4C2E599C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6ACF2E0-55C8-4A11-AD9B-CD4C2E599C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6ACF2E0-55C8-4A11-AD9B-CD4C2E599C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6D3C08-8149-46CD-8957-A72AD23C2515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6D3C08-8149-46CD-8957-A72AD23C2515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6D3C08-8149-46CD-8957-A72AD23C2515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6D3C08-8149-46CD-8957-A72AD23C2515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
