@@ -4,15 +4,8 @@ open System
 module Types = 
     type Id = Id of Guid
     type Entity<'T> = Id * 'T
-    let createEntity state = Guid.NewGuid(), state
+    let createEntity state = Id (Guid.NewGuid()), state
 
-    type MemberState = 
-        {
-            FirstName: string
-            LastName: string
-            Email: string
-        }
-    type Member = Entity<MemberState>
 
     type ExpirationType = 
         | AssignmentExpiration of string * int
@@ -26,14 +19,30 @@ module Types =
             BeginDate: DateTime option
         }
 
-    type OfferState = 
+    type MemberState = 
+        private {
+            FirstName: string
+            LastName: string
+            Email: string
+            AssignedOffers: Offer list
+        }
+    and Member = Entity<MemberState>
+    and OfferState = 
         {
             OfferType: OfferType
             DateExpiring: DateTime
             Value: int
             Member: Member
         }
-    type Offer = Entity<OfferState>
+    and Offer = Entity<OfferState>
+
+    let createMemberState firstName lastName email =
+        {FirstName = firstName; LastName = lastName; Email = email; AssignedOffers = []}
+
+    let assignOffer (id, memberState) offer =
+        (id, {memberState with AssignedOffers = offer::memberState.AssignedOffers})
+
+    let getFullName memberState = sprintf "%s %s" memberState.FirstName memberState.LastName
 
 module internal OfferType = 
     open Types
@@ -53,7 +62,6 @@ module internal OfferType =
 module internal Member = 
     open Types
     open OfferType
-    let FullName m = sprintf "%s %s" m.FirstName m.LastName
 
     let AssigneMemberToOfferType memberEntity offerType offerValueCalculator = 
         let dateExpiring = CalculateExpirationDate offerType
@@ -65,7 +73,9 @@ module internal Member =
                 Value = value
                 Member = memberEntity
             }
-        offerState |> createEntity
+        let offer = offerState |> createEntity
+        assignOffer memberEntity offer
+        offer
         
 module OfferService =
     open Types
