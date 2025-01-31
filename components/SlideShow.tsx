@@ -55,17 +55,24 @@ export function SlideShow({ slides, initialSlide }: SlideShowProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight" || event.key === " ") {
-        event.preventDefault() // Prevent scrolling on space key
-        paginate(1)
+        event.preventDefault()
+        handleNextAnimation()
       } else if (event.key === "ArrowLeft") {
         paginate(-1)
       }
     }
 
+    const handleClick = (event: MouseEvent) => {
+      event.preventDefault()
+      handleNextAnimation()
+    }
+
     window.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("click", handleClick)
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("click", handleClick)
     }
   }, [paginate, handleNextAnimation])
 
