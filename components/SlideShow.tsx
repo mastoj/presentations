@@ -1,17 +1,18 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { AnimatePresence } from "motion/react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { Slide } from "./Slide";
 
 interface SlideShowProps {
-  slides: string[];
+  slides: ReactNode[];
   initialSlide: number;
+  className?: string;
 }
 
-export function SlideShow({ slides, initialSlide }: SlideShowProps) {
-  const router = useRouter();
+export function SlideShow({ slides, initialSlide, className }: SlideShowProps) {
   const searchParams = useSearchParams();
   const [currentPage, setCurrentPage] = useState(initialSlide);
   const [direction, setDirection] = useState(0);
@@ -37,10 +38,15 @@ export function SlideShow({ slides, initialSlide }: SlideShowProps) {
       if (newPage >= 0 && newPage < slides.length) {
         setCurrentPage(newPage);
         setDirection(newDirection);
-        router.push(`?slide=${newPage}`, { scroll: false });
+
+        // Set slide query parameter to newPage
+        const params = new URLSearchParams(searchParams.toString());
+        params.set("slide", newPage.toString());
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        window.history.pushState({}, "", newUrl);
       }
     },
-    [currentPage, router, slides.length]
+    [currentPage, searchParams, slides.length]
   );
 
   const handleSlideComplete = useCallback(() => {
@@ -58,9 +64,10 @@ export function SlideShow({ slides, initialSlide }: SlideShowProps) {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      event.preventDefault();
       if (event.key === "ArrowRight" || event.key === " ") {
-        event.preventDefault();
-        handleNextAnimation();
+        paginate(1);
+        // handleNextAnimation();
       } else if (event.key === "ArrowLeft") {
         paginate(-1);
       }
@@ -68,7 +75,8 @@ export function SlideShow({ slides, initialSlide }: SlideShowProps) {
 
     const handleClick = (event: MouseEvent) => {
       event.preventDefault();
-      handleNextAnimation();
+      paginate(1);
+      // handleNextAnimation();
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -81,7 +89,7 @@ export function SlideShow({ slides, initialSlide }: SlideShowProps) {
   }, [paginate, handleNextAnimation]);
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-gray-100">
+    <div className={cn("h-full w-full overflow-hidden bg-gray-100", className)}>
       <AnimatePresence initial={false} custom={direction}>
         <Slide
           key={currentPage}

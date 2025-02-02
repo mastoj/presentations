@@ -16,7 +16,7 @@ export const Animate = ({ children, number }: AnimateProps) => {
 
   const setVisible = () => {
     const newNumber = currentAnimationNumber + 1;
-    console.log("==> Current animatio number: ", currentAnimationNumber);
+    console.log("==> Current animation number: ", currentAnimationNumber);
     if (newNumber >= number) {
       setIsVisible(true);
     }

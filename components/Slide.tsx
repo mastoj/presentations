@@ -1,21 +1,16 @@
 "use client";
 
+import { Variants } from "motion/react";
 import * as motion from "motion/react-client";
-import type React from "react";
-import { forwardRef, useCallback, useImperativeHandle, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Animate } from "./Animate";
-import { mdxComponents } from "./mdx-components";
+import { forwardRef, ReactNode, useCallback, useImperativeHandle } from "react";
 
 interface SlideProps {
-  content: string;
+  content: ReactNode;
   custom?: number;
   onComplete: () => void;
 }
 
-const slideVariants = {
+const slideVariants: Variants = {
   enter: (direction: number) => ({
     x: direction > 0 ? "100%" : "-100%",
     opacity: 0,
@@ -24,6 +19,9 @@ const slideVariants = {
     zIndex: 1,
     x: 0,
     opacity: 1,
+    transition: {
+      ease: ["easeIn", "easeOut"],
+    },
   },
   exit: (direction: number) => ({
     zIndex: 0,
@@ -36,10 +34,10 @@ export const Slide = forwardRef<
   { triggerNextAnimation: () => boolean },
   SlideProps
 >(({ content, custom, onComplete }, ref) => {
-  const [animationIndex, setAnimationIndex] = useState(0);
+  // const [animationIndex, setAnimationIndex] = useState(0);
 
   const triggerNextAnimation = useCallback(() => {
-    setAnimationIndex((prevIndex) => prevIndex + 1);
+    // setAnimationIndex((prevIndex) => prevIndex + 1);
     return true;
   }, []);
 
@@ -47,29 +45,29 @@ export const Slide = forwardRef<
     triggerNextAnimation,
   }));
 
-  const components = {
-    ...mdxComponents,
-    Animate: ({ children }: { children: React.ReactNode }) => (
-      <Animate isVisible={animationIndex > 0}>{children}</Animate>
-    ),
-    code({ node, inline, className, children, ...props }: any) {
-      const match = /language-(\w+)/.exec(className || "");
-      return !inline && match ? (
-        <SyntaxHighlighter
-          style={tomorrow}
-          language={match[1]}
-          PreTag="div"
-          {...props}
-        >
-          {String(children).replace(/\n$/, "")}
-        </SyntaxHighlighter>
-      ) : (
-        <code className={className} {...props}>
-          {children}
-        </code>
-      );
-    },
-  };
+  // const components = {
+  //   ...mdxComponents,
+  //   Animate: ({ children }: { children: React.ReactNode }) => (
+  //     <Animate isVisible={animationIndex > 0}>{children}</Animate>
+  //   ),
+  //   code({ node, inline, className, children, ...props }: any) {
+  //     const match = /language-(\w+)/.exec(className || "");
+  //     return !inline && match ? (
+  //       <SyntaxHighlighter
+  //         style={tomorrow}
+  //         language={match[1]}
+  //         PreTag="div"
+  //         {...props}
+  //       >
+  //         {String(children).replace(/\n$/, "")}
+  //       </SyntaxHighlighter>
+  //     ) : (
+  //       <code className={className} {...props}>
+  //         {children}
+  //       </code>
+  //     );
+  //   },
+  // };
 
   return (
     <motion.div
@@ -85,7 +83,9 @@ export const Slide = forwardRef<
       }}
     >
       <div className="w-full h-full p-8 overflow-auto">
-        <ReactMarkdown components={components}>{content}</ReactMarkdown>
+        {content}
+        {/* <ReactMarkdown components={components}>
+        </ReactMarkdown> */}
       </div>
     </motion.div>
   );
