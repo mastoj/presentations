@@ -9,6 +9,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -136,6 +137,11 @@ export function SlideShow({ slides, initialSlide, className }: SlideShowProps) {
     };
   }, [paginate]);
 
+  const memoizedSlide = useMemo(
+    () => slides[currentPage],
+    [currentPage, slides]
+  );
+
   return (
     <SlideContext
       value={{ remainingAnimations, removeAnimation, registerAnimation }}
@@ -146,7 +152,7 @@ export function SlideShow({ slides, initialSlide, className }: SlideShowProps) {
         <AnimatePresence initial={false} custom={direction}>
           <Slide
             key={currentPage}
-            content={slides[currentPage]}
+            content={memoizedSlide}
             custom={direction}
             // toggleSlide={handleToggleSlide}
             ref={slideRef}

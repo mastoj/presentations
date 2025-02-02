@@ -2,7 +2,7 @@
 
 import { Variants } from "motion/react";
 import * as motion from "motion/react-client";
-import { forwardRef, ReactNode, useCallback, useImperativeHandle } from "react";
+import { memo, ReactNode } from "react";
 
 interface SlideProps {
   content: ReactNode;
@@ -30,20 +30,17 @@ const slideVariants: Variants = {
   }),
 };
 
-export const Slide = forwardRef<
-  { triggerNextAnimation: () => boolean },
-  SlideProps
->(({ content, custom }, ref) => {
+export const Slide = memo(({ content, custom }: SlideProps) => {
   // const [animationIndex, setAnimationIndex] = useState(0);
 
-  const triggerNextAnimation = useCallback(() => {
-    // setAnimationIndex((prevIndex) => prevIndex + 1);
-    return true;
-  }, []);
+  // const triggerNextAnimation = useCallback(() => {
+  //   // setAnimationIndex((prevIndex) => prevIndex + 1);
+  //   return true;
+  // }, []);
 
-  useImperativeHandle(ref, () => ({
-    triggerNextAnimation,
-  }));
+  // useImperativeHandle(ref, () => ({
+  //   triggerNextAnimation,
+  // }));
 
   // const components = {
   //   ...mdxComponents,
