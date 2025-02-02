@@ -8,6 +8,7 @@ type SlideProps = {
   initialSlide: number;
 };
 export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
+  console.log("==> Hello");
   return (
     <div className="flex h-screen items-center">
       <SlideShow

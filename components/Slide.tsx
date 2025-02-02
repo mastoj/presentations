@@ -7,7 +7,7 @@ import { forwardRef, ReactNode, useCallback, useImperativeHandle } from "react";
 interface SlideProps {
   content: ReactNode;
   custom?: number;
-  onComplete: () => void;
+  // toggleSlide: (enabled: boolean) => void;
 }
 
 const slideVariants: Variants = {
@@ -33,7 +33,7 @@ const slideVariants: Variants = {
 export const Slide = forwardRef<
   { triggerNextAnimation: () => boolean },
   SlideProps
->(({ content, custom, onComplete }, ref) => {
+>(({ content, custom }, ref) => {
   // const [animationIndex, setAnimationIndex] = useState(0);
 
   const triggerNextAnimation = useCallback(() => {
