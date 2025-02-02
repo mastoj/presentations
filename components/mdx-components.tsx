@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import * as motion from "motion/react-client";
 
 export const CustomH1 = ({ children }: { children: React.ReactNode }) => (
   <motion.h1
@@ -9,9 +9,13 @@ export const CustomH1 = ({ children }: { children: React.ReactNode }) => (
   >
     {children}
   </motion.h1>
-)
+);
 
-export const CustomBlockquote = ({ children }: { children: React.ReactNode }) => (
+export const CustomBlockquote = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
   <motion.blockquote
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
@@ -20,10 +24,9 @@ export const CustomBlockquote = ({ children }: { children: React.ReactNode }) =>
   >
     {children}
   </motion.blockquote>
-)
+);
 
 export const mdxComponents = {
   h1: CustomH1,
   blockquote: CustomBlockquote,
-}
-
+};
