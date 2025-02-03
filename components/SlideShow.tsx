@@ -1,173 +1,123 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { cn } from "@/lib/utils";
-import { AnimatePresence } from "motion/react";
-import { useSearchParams } from "next/navigation";
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { Slide } from "./Slide";
+import { MDXProvider } from "@mdx-js/react";
+import { AnimatePresence, motion } from "motion/react";
+import React, { useState } from "react";
+import Slide2 from "./slide2";
 
-type SlideState = {
-  remainingAnimations: Set<number>;
-  registerAnimation: (name: number) => void;
-  removeAnimation: (name: number) => void;
-};
-
-const SlideContext = createContext<SlideState>({
-  remainingAnimations: new Set(),
-  registerAnimation: () => {},
-  removeAnimation: () => {},
-});
-
-interface SlideShowProps {
-  slides: ReactNode[];
-  initialSlide: number;
-  className?: string;
+interface SlideProps {
+  nextSlide: () => void;
 }
 
-export function SlideShow({ slides, initialSlide, className }: SlideShowProps) {
-  const searchParams = useSearchParams();
-  const [slideEnabled, setSlideEnabled] = useState(true);
-  const [currentPage, setCurrentPage] = useState(initialSlide);
+type SlideComponent = React.ComponentType<SlideProps>;
+
+interface MDXSlide {
+  default: React.ComponentType;
+}
+
+type Slide = SlideComponent | MDXSlide;
+
+interface SlideshowProps {
+  slides: Slide[];
+}
+
+const mdxComponents = {
+  h1: (props: any) => <h1 className="text-4xl font-bold mb-8" {...props} />,
+  p: (props: any) => <p className="text-xl mb-4" {...props} />,
+  ul: (props: any) => (
+    <ul className="text-xl space-y-4 list-disc list-inside" {...props} />
+  ),
+  li: (props: any) => <li {...props} />,
+};
+
+export function Slideshow({ slides }: SlideshowProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
-  const slideRef = useRef<{ triggerNextAnimation: () => boolean } | null>(null);
 
-  const [remainingAnimations, setRemainingAnimations] = useState<Set<number>>(
-    new Set([])
-  );
-  const registerAnimation = (num: number) => {
-    const newSet = new Set(remainingAnimations);
-    newSet.add(num);
-    console.log("==> stuff: ", num, newSet);
-    setRemainingAnimations(newSet);
-    setSlideEnabled(false);
-  };
-  const removeAnimation = (num: number) => {
-    setRemainingAnimations((prevAnimations) => {
-      const newSet = new Set(prevAnimations);
-      newSet.delete(num);
-      if (newSet.size == 0) {
-        setSlideEnabled(true);
-      }
-      return newSet;
-    });
-  };
-
-  useEffect(() => {
-    const slide = searchParams.get("slide");
-    if (slide) {
-      const slideNumber = Number.parseInt(slide, 10);
-      if (
-        !isNaN(slideNumber) &&
-        slideNumber >= 0 &&
-        slideNumber < slides.length
-      ) {
-        setCurrentPage(slideNumber);
-      }
+  const nextSlide = () => {
+    if (currentSlide === slides.length - 1) {
+      setDirection(-1);
+      setCurrentSlide(0);
+    } else {
+      setDirection(1);
+      setCurrentSlide((prev) => prev + 1);
     }
-  }, [searchParams, slides.length]);
+  };
 
-  const paginate = useCallback(
-    (newDirection: number) => {
-      const newPage = currentPage + newDirection;
-      if (
-        newPage >= 0 &&
-        newPage < slides.length &&
-        (slideEnabled || newDirection < 0)
-      ) {
-        setCurrentPage(newPage);
-        setDirection(newDirection);
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "ArrowRight" || event.key === " ") {
+      nextSlide();
+    }
+  };
 
-        // Set slide query parameter to newPage
-        const params = new URLSearchParams(searchParams.toString());
-        params.set("slide", newPage.toString());
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        window.history.pushState({}, "", newUrl);
-      }
-    },
-    [currentPage, searchParams, slideEnabled, slides.length]
-  );
-
-  // const handleToggleSlide = useCallback((v: boolean) => {
-  //   setSlideEnabled(v);
-  //   console.log("==> Enabling slide: ", v);
-  //   // paginate(1);
-  // }, []);
-
-  // const handleNextAnimation = useCallback(() => {
-  //   if (slideRef.current) {
-  //     const hasMoreAnimations = slideRef.current.triggerNextAnimation();
-  //     if (!hasMoreAnimations) {
-  //       handleSlideComplete();
-  //     }
-  //   }
-  // }, [handleSlideComplete]);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      event.preventDefault();
-      if (event.key === "ArrowRight" || event.key === " ") {
-        paginate(1);
-        // handleNextAnimation();
-      } else if (event.key === "ArrowLeft") {
-        paginate(-1);
-      }
-    };
-
-    const handleClick = (event: MouseEvent) => {
-      event.preventDefault();
-      paginate(1);
-      // handleNextAnimation();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("click", handleClick);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("click", handleClick);
-    };
-  }, [paginate]);
-
-  const memoizedSlide = useMemo(
-    () => slides[currentPage],
-    [currentPage, slides]
-  );
+  const renderSlide = (slide: Slide) => {
+    console.log("==> Some slide: ", slide);
+    if ("default" in slide) {
+      // This is an MDX slide
+      console.log("==> MDX SLIDE: ", slide);
+      const MDXSlide = slide.default;
+      return (
+        <Slide2 nextSlide={nextSlide}>
+          <div
+            className="w-full h-full flex flex-col items-center justify-center bg-yellow-100 p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <MDXProvider components={mdxComponents}>
+              <MDXSlide />
+            </MDXProvider>
+          </div>
+        </Slide2>
+      );
+    } else {
+      // This is a TSX slide
+      return (
+        <Slide2 nextSlide={nextSlide}>
+          {React.createElement(slide, { nextSlide })}
+        </Slide2>
+      );
+    }
+  };
 
   return (
-    <SlideContext
-      value={{ remainingAnimations, removeAnimation, registerAnimation }}
+    <div
+      className="w-full h-screen flex items-center justify-center bg-gray-100"
+      onClick={nextSlide}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
     >
-      <div
-        className={cn("h-full w-full overflow-hidden bg-gray-100", className)}
-      >
-        <AnimatePresence initial={false} custom={direction}>
-          <Slide
-            key={currentPage}
-            content={memoizedSlide}
-            custom={direction}
-            // toggleSlide={handleToggleSlide}
-            ref={slideRef}
-          />
-        </AnimatePresence>
-      </div>
-    </SlideContext>
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={currentSlide}
+          custom={direction}
+          variants={{
+            enter: (direction: number) => ({
+              x: direction > 0 ? 1000 : -1000,
+              opacity: 0,
+            }),
+            center: {
+              zIndex: 1,
+              x: 0,
+              opacity: 1,
+            },
+            exit: (direction: number) => ({
+              zIndex: 0,
+              x: direction < 0 ? 1000 : -1000,
+              opacity: 0,
+            }),
+          }}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+          className="w-full h-full absolute"
+        >
+          {renderSlide(slides[currentSlide])}
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 }
-
-export const useSlide = () => {
-  const context = useContext(SlideContext);
-  console.log("==> Getting some context: ", context);
-  if (!context) {
-    throw new Error("useSlide must be used in a slide");
-  }
-  return context;
-};
