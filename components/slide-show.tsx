@@ -36,7 +36,7 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
 
   return (
     <div
-      className="h-screen flex items-center justify-center bg-gray-100 overflow-hidden aspect-video mx-auto relative"
+      className="h-screen flex items-center justify-center overflow-hidden aspect-video mx-auto relative"
       tabIndex={0}
     >
       <AnimatePresence initial={false} custom={direction}>
@@ -45,7 +45,7 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
           custom={direction}
           variants={{
             enter: (direction: number) => ({
-              x: direction > 0 ? 1000 : -1000,
+              x: direction > 0 ? 4000 : -4000,
               opacity: 0,
             }),
             center: {
@@ -55,7 +55,7 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
             },
             exit: (direction: number) => ({
               zIndex: 0,
-              x: direction < 0 ? 1000 : -1000,
+              x: direction < 0 ? 4000 : -4000,
               opacity: 0,
             }),
           }}
@@ -63,10 +63,11 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
+            ease: "easeInOut",
+            // x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
-          className="w-full h-full focus:outline-none focus-visible:outline-none bg-green-500"
+          className="w-full h-full focus:outline-hidden focus-visible:outline-hidden absolute"
         >
           <Slide nextSlide={nextSlide} previousSlide={previousSlide}>
             {React.createElement(slides[currentSlide])}
