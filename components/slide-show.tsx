@@ -37,7 +37,7 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
 
   return (
     <div
-      className="h-screen flex items-center justify-center overflow-hidden aspect-video mx-auto relative"
+      className="h-full flex items-center justify-center overflow-hidden aspect-video mx-auto relative"
       tabIndex={0}
     >
       <AnimatePresence initial={false} custom={direction}>

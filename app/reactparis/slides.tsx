@@ -45,8 +45,14 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
         initialSlide={initialSlide}
         // className=""
       />
-      <div className="absolute bottom-4 right-0 flex gap-2 items-center">
-        <a href={presentationUrl} className="self-end">
+      <div className="absolute bottom-4 right-0 flex gap-2 items-center text-subtle z-10">
+        <a
+          href={presentationUrl}
+          className="self-end"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+        >
           {presentationUrl}
         </a>
         {links.map((link) => (
@@ -56,6 +62,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
             target="_blank"
             rel="noopener noreferrer"
             className=""
+            onClick={(e) => e.stopPropagation()}
           >
             {link.icon}
           </a>
