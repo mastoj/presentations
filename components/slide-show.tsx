@@ -1,8 +1,8 @@
 "use client";
 
+import Slide from "@/components/slide";
 import { AnimatePresence, motion } from "motion/react";
 import { JSX, useState } from "react";
-import Slide from "./slide";
 
 export type SlideDefinition = () => JSX.Element;
 interface SlideshowProps {

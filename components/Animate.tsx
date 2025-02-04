@@ -1,9 +1,9 @@
 "use client";
+import { useSlide } from "@/components/slide";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import type React from "react";
 import { useEffect } from "react";
-import { useSlide } from "./slide";
 
 interface AnimateProps {
   children: React.ReactNode;
