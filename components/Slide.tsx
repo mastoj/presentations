@@ -22,7 +22,7 @@ type Props = {
   previousSlide: () => void;
 };
 
-const Slide2 = ({
+const Slide = ({
   nextSlide,
   previousSlide,
   children,
@@ -76,4 +76,4 @@ export const useSlide = () => {
   return context;
 };
 
-export default Slide2;
+export default Slide;

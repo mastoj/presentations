@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
-import Slide2 from "./slide";
+import Slide from "./slide";
 
 interface SlideshowProps {
   slides: React.ComponentType[];
@@ -68,9 +68,9 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
           }}
           className="w-full h-full absolute"
         >
-          <Slide2 nextSlide={nextSlide} previousSlide={previousSlide}>
+          <Slide nextSlide={nextSlide} previousSlide={previousSlide}>
             {React.createElement(slides[currentSlide])}
-          </Slide2>
+          </Slide>
         </motion.div>
       </AnimatePresence>
     </div>
