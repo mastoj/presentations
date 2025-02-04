@@ -3,7 +3,7 @@ import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import type React from "react";
 import { useEffect } from "react";
-import { useSlide } from "./slide2";
+import { useSlide } from "./slide";
 
 interface AnimateProps {
   children: React.ReactNode;

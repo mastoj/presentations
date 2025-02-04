@@ -2,9 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
-import Slide2 from "./slide2";
-
-type Slide = React.ComponentType; // | MDXSlide;
+import Slide2 from "./slide";
 
 interface SlideshowProps {
   slides: React.ComponentType[];
