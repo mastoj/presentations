@@ -1,11 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import React, { useState } from "react";
+import { JSX, useState } from "react";
 import Slide from "./slide";
 
+export type SlideDefinition = () => JSX.Element;
 interface SlideshowProps {
-  slides: React.ComponentType[];
+  slides: SlideDefinition[];
   initialSlide: number;
 }
 
@@ -70,7 +71,7 @@ export function Slideshow({ slides, initialSlide }: SlideshowProps) {
           className="w-full h-full focus:outline-hidden focus-visible:outline-hidden absolute"
         >
           <Slide nextSlide={nextSlide} previousSlide={previousSlide}>
-            {React.createElement(slides[currentSlide])}
+            {slides[currentSlide]()}
           </Slide>
         </motion.div>
       </AnimatePresence>

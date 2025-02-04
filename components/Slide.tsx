@@ -63,7 +63,7 @@ const Slide = ({
   });
   return (
     <SlideContext value={{ step, reportAnimationNumber }}>
-      <div>{children}</div>
+      {children}
     </SlideContext>
   );
 };

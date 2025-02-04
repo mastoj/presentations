@@ -1,3 +1,4 @@
+import type { MDXComponents } from "mdx/types";
 import * as motion from "motion/react-client";
 
 export const CustomH1 = ({ children }: { children: React.ReactNode }) => (
@@ -30,3 +31,10 @@ export const mdxComponents = {
   h1: CustomH1,
   blockquote: CustomBlockquote,
 };
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    ...components,
+    ...mdxComponents,
+  };
+}
