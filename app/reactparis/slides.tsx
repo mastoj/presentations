@@ -1,6 +1,7 @@
 "use client";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
 import TitleSlide from "@/components/title-slide";
+import background from "@/images/nextecom/homepage.png";
 import { ComponentType, createElement } from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import Slide1 from "./_slides/slide1.mdx";
@@ -32,6 +33,8 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
       <TitleSlide
         title="What we learned rebuilding the largest Nordic electronic retail website in Next.js?"
         date={new Date(2025, 3, 20)}
+        backgroundImage={background}
+        presentationSlug="reactparis"
       />
     ),
     c(Slide1),
@@ -39,7 +42,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide3),
   ];
   return (
-    <div className="flex h-full items-center">
+    <div className="flex h-full items-center relative">
       <Slideshow
         slides={slides}
         initialSlide={initialSlide}
@@ -48,7 +51,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
       <div className="absolute bottom-4 right-0 flex gap-2 items-center text-subtle z-10">
         <a
           href={presentationUrl}
-          className="self-end"
+          className="self-end text-green-400"
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
