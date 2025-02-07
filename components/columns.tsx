@@ -13,5 +13,9 @@ export const Column = ({
   children,
   className,
 }: PropsWithChildren<{ className?: string }>) => {
-  return <div className={cn("w-full", className)}>{children}</div>;
+  return (
+    <div className={cn("w-full overflow-hidden h-full", className)}>
+      {children}
+    </div>
+  );
 };
