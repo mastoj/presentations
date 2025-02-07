@@ -6,27 +6,19 @@ import {
   useEffect,
   useState,
 } from "react";
+import { useSlideshow } from "./slide-show-hooks";
 
 type SlideState = {
   step: number;
+  nextSlide: () => void;
+  previousSlide: () => void;
   reportAnimationNumber: (animationNumber: number) => void;
 };
 
-const SlideContext = createContext<SlideState>({
-  step: 0,
-  reportAnimationNumber: () => {},
-});
+const SlideContext = createContext<SlideState | undefined>(undefined);
 
-type Props = {
-  nextSlide: () => void;
-  previousSlide: () => void;
-};
-
-const Slide = ({
-  nextSlide,
-  previousSlide,
-  children,
-}: PropsWithChildren<Props>) => {
+const Slide = ({ children }: PropsWithChildren) => {
+  const { previousSlide, nextSlide } = useSlideshow();
   const [step, setStep] = useState(0);
   const [maxStep, setMaxStep] = useState(0);
 
@@ -62,7 +54,14 @@ const Slide = ({
     };
   });
   return (
-    <SlideContext value={{ step, reportAnimationNumber }}>
+    <SlideContext
+      value={{
+        step,
+        reportAnimationNumber,
+        nextSlide,
+        previousSlide,
+      }}
+    >
       {children}
     </SlideContext>
   );
@@ -70,6 +69,7 @@ const Slide = ({
 
 export const useSlide = () => {
   const context = useContext(SlideContext);
+  console.log("==> Context: ", context);
   if (!context) {
     throw new Error("useSlide must be used within a SlideContext");
   }
