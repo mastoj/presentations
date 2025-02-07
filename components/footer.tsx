@@ -41,7 +41,7 @@ export const Footer = ({
     <div className="w-full fixed bottom-0 flex justify-between p-4 z-10">
       <SlideNavigator />
 
-      <div className="flex gap-2 items-center text-subtle content-center">
+      <div className="flex flex-col md:flex-row gap-2 items-center text-subtle content-center">
         <a
           href={presentationUrl}
           className="text-green-400"
@@ -51,18 +51,20 @@ export const Footer = ({
         >
           {presentationUrl}
         </a>
-        {links.map((link) => (
-          <a
-            key={link.title}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className=""
-            onClick={(e) => e.stopPropagation()}
-          >
-            {link.icon}
-          </a>
-        ))}
+        <div className="flex flex-row items-center gap-2 self-end content-center">
+          {links.map((link) => (
+            <a
+              key={link.title}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=""
+              onClick={(e) => e.stopPropagation()}
+            >
+              {link.icon}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
