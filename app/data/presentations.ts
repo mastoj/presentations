@@ -16,6 +16,6 @@ export const presentations: Presentation[] = [
       "What was the motivation for rebuilding the largest Nordic electronic retail website in Next.js, what did we learn and how do you go about making such a change in a larger organization?",
     date: "2025-03-20",
     // recordingUrl: "https://example.com/react-intro-recording",
-    slidesUrl: "https://presentations.2mas.xyz/reactparis",
+    slidesUrl: "/reactparis",
   },
 ];
