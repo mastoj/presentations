@@ -1,5 +1,11 @@
+import { VideoPlayer } from "@/components/video-player";
+
 const PresentationListPage = () => {
-  return <div>PresentationListPage</div>;
+  return (
+    <div>
+      <VideoPlayer />
+    </div>
+  );
 };
 
 export default PresentationListPage;

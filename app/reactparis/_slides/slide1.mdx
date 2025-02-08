@@ -1,19 +1,17 @@
 import { Animate } from "@/components/animate"
 import { Column, Columns } from "@/components/columns"
+import { VideoPlayer } from "@/components/video-player"
 
 
 <Columns columns={2}>
 <Column>
 # Welcome to Our Presentation
 
-<Animate number={1} animationType={["out", "in"]} animationEffect="slide">
-
-> Here's an important quote that will animate in.
-
-</Animate>
-
+<div className="flex flex-row w-full">
+asds
+</div>
 </Column>
 <Column>
-This is the first slide of our presentation.
+<VideoPlayer />
 </Column>
 </Columns>

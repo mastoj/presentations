@@ -6,7 +6,11 @@ type Props = {
 };
 
 export const Columns = ({ columns, children }: PropsWithChildren<Props>) => {
-  return <div className={`grid grid-cols-${columns} gap-4`}>{children}</div>;
+  return (
+    <div className={`grid grid-cols-${columns} gap-4 h-full w-full`}>
+      {children}
+    </div>
+  );
 };
 
 export const Column = ({
