@@ -12,7 +12,8 @@ export const VideoPlayer = () => {
         src="next-pre-cdn-video"
         className="max-w-[360px]"
         muted={true}
-        autoPlay={true}
+        autoPlay="on"
+poster="first_frame"
       />
     </div>
     // <div className="w-full h-full flex items-center justify-center relative">
