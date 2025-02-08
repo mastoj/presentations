@@ -1,21 +1,37 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { CldVideoPlayer } from "next-cloudinary";
 import "../node_modules/next-cloudinary/dist/cld-video-player.css";
 
-export const VideoPlayer = () => {
+export type VideoPlayerProps = {
+  id?: string;
+  width: number;
+  height: number;
+  cloudinaryId: string;
+  className?: string;
+};
+export const VideoPlayer = ({
+  id,
+  width,
+  height,
+  cloudinaryId,
+  className,
+}: VideoPlayerProps) => {
+  const posterUrl = `https://res.cloudinary.com/dfsp4lpf1/video/upload/so_0/c_limit,h_700,w_400/${cloudinaryId}.avif`;
+  //"max-w-[360px] relative"
   return (
-    <div className="max-w-[360px] h-full relative">
-      <CldVideoPlayer
-        id="next-pre-cdn-video"
-        width="360"
-        height="640"
-        src="next-pre-cdn-video"
-        className="max-w-[360px]"
-        muted={true}
-        autoPlay="on"
-poster="first_frame"
-      />
-    </div>
+    <CldVideoPlayer
+      id={id ?? cloudinaryId}
+      width={width}
+      height={height}
+      src={cloudinaryId}
+      className={cn(className)}
+      muted
+      autoplay
+      playsinline
+      poster={posterUrl}
+      // poster="first_frame"
+    />
     // <div className="w-full h-full flex items-center justify-center relative">
     // </div>
   );

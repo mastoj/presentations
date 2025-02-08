@@ -1,6 +1,17 @@
 import type { MDXComponents } from "mdx/types";
 import * as motion from "motion/react-client";
 
+export const CustomH2 = ({ children }: { children: React.ReactNode }) => (
+  <motion.h1
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="text-xl md:text-2xl font-bold mb-6"
+  >
+    {children}
+  </motion.h1>
+);
+
 export const CustomH1 = ({ children }: { children: React.ReactNode }) => (
   <motion.h1
     initial={{ opacity: 0, y: -20 }}
@@ -29,6 +40,7 @@ export const CustomBlockquote = ({
 
 export const mdxComponents = {
   h1: CustomH1,
+  h2: CustomH2,
   blockquote: CustomBlockquote,
 };
 

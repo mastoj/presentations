@@ -98,7 +98,7 @@ export function Slideshow({
               // x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            className="w-full h-full focus:outline-hidden focus-visible:outline-hidden absolute"
+            className="w-full h-full focus:outline-hidden focus-visible:outline-hidden absolute py-8 px-8"
           >
             <Slide>{slides[currentSlide]()}</Slide>
           </motion.div>

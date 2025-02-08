@@ -1,20 +1,12 @@
 "use client";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
 import TitleSlide from "@/components/title-slide";
-import { VideoPlayer } from "@/components/video-player";
 import background from "@/images/nextecom/homepage.png";
 import { ComponentType, createElement } from "react";
 import Slide1 from "./_slides/slide1.mdx";
 import Slide2 from "./_slides/slide2.mdx";
 import Slide3 from "./_slides/slide3.mdx";
-
-const Something = () => {
-  return (
-    <div className="fixed top-0 left-0 w-screen h-screen">
-      <VideoPlayer />
-    </div>
-  );
-};
+import Slide4 from "./_slides/slide4.mdx";
 
 type SlideProps = {
   initialSlide: number;
@@ -35,7 +27,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide1),
     c(Slide2),
     c(Slide3),
-    c(Something),
+    c(Slide4),
   ];
   return (
     <div className="flex h-full items-center relative">

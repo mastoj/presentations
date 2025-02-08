@@ -51,7 +51,7 @@ export const Footer = ({
         >
           {presentationUrl}
         </a>
-        <div className="flex flex-row items-center gap-2 self-end content-center">
+        <div className="flex flex-row items-center gap-2 content-center">
           {links.map((link) => (
             <a
               key={link.title}
