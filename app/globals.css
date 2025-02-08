@@ -140,3 +140,5 @@
     @apply bg-background text-foreground;
   }
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
