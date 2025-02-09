@@ -49,7 +49,15 @@ const Slide = ({ children }: PropsWithChildren) => {
       }
     };
 
-    const clickHandler = () => handleClick(1);
+    const clickHandler = (e: MouseEvent) => {
+      // If target element is link or button don't call handleClick
+      console.log("==> Target: ", e);
+      const tagName = (e.target as HTMLElement).tagName.toLowerCase();
+      if (tagName === "a" || tagName === "button") {
+        return;
+      }
+      handleClick(1);
+    };
     document.addEventListener("click", clickHandler);
     document.addEventListener("keydown", handleKeydown);
     return () => {
