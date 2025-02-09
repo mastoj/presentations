@@ -1,7 +1,7 @@
 "use client";
+import background from "@/assets/images/nextecom/homepage.png";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
 import TitleSlide from "@/components/title-slide";
-import background from "@/images/nextecom/homepage.png";
 import { ComponentType, createElement } from "react";
 import Slide1 from "./_slides/slide1.mdx";
 import Slide2 from "./_slides/slide2.mdx";

@@ -1,17 +1,48 @@
+import BadComment1 from "@/assets/images/nextecom/bad_comment1.png"
+import BadComment2 from "@/assets/images/nextecom/bad_comment2.png"
+import NoPrices from "@/assets/images/nextecom/missing_prices.png"
+import PageSpeedElkjopMobile from "@/assets/images/nextecom/page-speed-elkjop-mobile.png"
+import SpeedInsightsDesktop from "@/assets/images/nextecom/speed-insights-desktop.png"
+import SpeedInsightsMobile from "@/assets/images/nextecom/speed-insights-mobile.png"
 import { Animate } from "@/components/animate"
 import { Column, Columns } from "@/components/columns"
 import { VideoPlayer } from "@/components/video-player"
+import Image from 'next/image'
 
 
 <Columns columns={2}>
 <Column>
-# Welcome to Our Presentation
 
-<div className="flex flex-row w-full">
-asds
-</div>
+# From this
+
+<Image src={NoPrices} alt="Missing prices on old page" />
+
+<Animate number={1}>
+<Image src={BadComment1} alt="Bad comments on reddit 1" />
+</Animate>
+<Animate number={2}>
+<Image src={BadComment2} alt="Bad comments on reddit 2" />
+</Animate>
+
+
 </Column>
 <Column>
-<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video" />
+
+# To this
+
+<div className="overflow-hidden *:inline">
+<Animate number={3} animationType={["in", "out"]}>
+<Image src={SpeedInsightsDesktop} alt="Desktop speed insights" />
+</Animate>
+
+<Animate number={4} animationType={["in", "out"]} delay={0.5}>
+<Image src={SpeedInsightsMobile} alt="Mobile speed insights" />
+</Animate>
+
+<Animate number={5} animationType={["in", "out"]} delay={1}>
+<Image src={PageSpeedElkjopMobile} alt="Mobile PageSpeed" />
+</Animate>
+</div>
+
 </Column>
 </Columns>

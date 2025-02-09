@@ -12,6 +12,7 @@ interface AnimateProps {
   children: React.ReactNode;
   isVisible: boolean;
   number: number;
+  delay?: number;
   animationType?: AnimationType[];
   animationEffect?: AnimationEffect;
 }
@@ -30,21 +31,24 @@ const isVisible = (
   return step === number;
 };
 
-const getAnimationEffect = (animationEffect: AnimationEffect) => {
+const getAnimationEffect = (
+  animationEffect: AnimationEffect,
+  delay: number
+) => {
   switch (animationEffect) {
     case "fade":
       return {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
         exit: { opacity: 0, y: -20 },
-        transition: { duration: 0.5 },
+        transition: { duration: 0.5, delay },
       };
     case "slide":
       return {
         initial: { opacity: 0, x: 3000 },
         animate: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: -3000 },
-        transition: { duration: 0.5 },
+        transition: { duration: 0.5, delay },
       };
   }
 };
@@ -52,6 +56,7 @@ const getAnimationEffect = (animationEffect: AnimationEffect) => {
 export const Animate = ({
   children,
   number,
+  delay = 0,
   animationType = ["in"],
   animationEffect = "slide",
 }: AnimateProps) => {
@@ -67,7 +72,7 @@ export const Animate = ({
     <div>
       <AnimatePresence>
         {isVisible(step, number, animationType) && (
-          <motion.div {...getAnimationEffect(animationEffect)}>
+          <motion.div {...getAnimationEffect(animationEffect, delay)}>
             {children}
           </motion.div>
         )}

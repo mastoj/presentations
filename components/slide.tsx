@@ -28,28 +28,31 @@ const Slide = ({ children }: PropsWithChildren) => {
     }
   };
   useEffect(() => {
-    const handleClick = () => {
+    const handleClick = (direction: number) => {
       console.log("==> Handle click: ", step, maxStep);
-      if (step < maxStep) {
-        console.log("==> Set step: ", step + 1);
-        setStep((prev) => prev + 1);
+      if (step === 0 && direction === -1) {
+        previousSlide();
+      } else if (step < maxStep) {
+        console.log("==> Set step: ", step + direction);
+        setStep((prev) => prev + direction);
       } else {
         nextSlide();
       }
     };
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight" || event.key === " ") {
-        handleClick();
+        handleClick(1);
       }
       if (event.key === "ArrowLeft") {
-        previousSlide();
+        handleClick(-1);
       }
     };
 
-    document.addEventListener("click", handleClick);
+    const clickHandler = () => handleClick(1);
+    document.addEventListener("click", clickHandler);
     document.addEventListener("keydown", handleKeydown);
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("click", clickHandler);
       document.removeEventListener("keydown", handleKeydown);
     };
   });
