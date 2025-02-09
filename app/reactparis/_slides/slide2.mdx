@@ -1,2 +1,33 @@
+import ElkjopLogo from "@/assets/images/nextecom/elkjop.png"
+import Me from "@/assets/images/nextecom/me.png"
+import { Animate } from "@/components/animate"
+import { Column, Columns } from "@/components/columns"
+import Image from "next/image"
+
 # Who is Tomas Jansson?
 
+<Columns columns={2}>
+<Column className="flex flex-col justify-center">
+<div className="max-w-[50%] flex  w-full">
+<Image src={ElkjopLogo} alt="Elkjøp logo" />
+</div>
+
+<div className="w-full">
+## Principal Software Engineer, Elkjøp Nordic AS
+</div>
+
+* I'm getting old - close to 20 years of getting paid for writing code
+* "Full stack" - everything from infrastructure to frontend
+* Focus on delivering value and make teams great
+* Strong believer in continous change
+</Column>
+<Column>
+
+<Animate number={0}>
+<div className="max-w-[75%] mt-12 mx-auto">
+  <Image src={Me} alt="Me" className="object-fit"/>
+</div>
+</Animate>
+
+</Column>
+</Columns>
