@@ -18,7 +18,6 @@ export const VideoPlayer = ({
   className,
 }: VideoPlayerProps) => {
   const posterUrl = `https://res.cloudinary.com/dfsp4lpf1/video/upload/so_0/c_limit,h_700,w_400/${cloudinaryId}.avif`;
-  //"max-w-[360px] relative"
   return (
     <CldVideoPlayer
       id={id ?? cloudinaryId}
@@ -30,9 +29,6 @@ export const VideoPlayer = ({
       autoplay
       playsinline
       poster={posterUrl}
-      // poster="first_frame"
     />
-    // <div className="w-full h-full flex items-center justify-center relative">
-    // </div>
   );
 };
