@@ -6,7 +6,6 @@ import { ComponentType, createElement } from "react";
 import Slide1 from "./_slides/slide1.mdx";
 import Slide2 from "./_slides/slide2.mdx";
 import Slide3 from "./_slides/slide3.mdx";
-import Slide4 from "./_slides/slide4.mdx";
 
 type SlideProps = {
   initialSlide: number;
@@ -27,7 +26,6 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide1),
     c(Slide2),
     c(Slide3),
-    c(Slide4),
   ];
   return (
     <div className="flex h-full items-center relative">

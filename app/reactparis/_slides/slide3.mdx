@@ -1,18 +1,37 @@
-# Third Slide
+import { Animate } from "@/components/animate"
+import { Column, Columns } from "@/components/columns"
+import { VideoPlayer } from "@/components/video-player"
 
-This slide demonstrates some Markdown features:
 
-1. Ordered lists
-2. **Bold text**
-3. *Italic text*
+<Columns columns={3}>
+<Column className="flex flex-col">
 
-{/* <Animate>
+## Old site
 
-`This is animated inline code`
+<div className="flex-1 max-w-[380px]">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="b2x-video"/>
+</Animate>
+</div>
+</Column>
+<Column className="flex flex-col">
 
-This text will be animated.
+## New site with CDN proxy
 
-</Animate> */}
+<div className="flex-1 max-w-[380px]">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video" id="next2" />
+</Animate>
+</div>
+</Column>
+<Column className="flex flex-col">
 
-This text will not be animated.
+## New site 100% Vercel
 
+<div className="flex-1 max-w-[380px]">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video"/>
+</Animate>
+</div>
+</Column>
+</Columns>
