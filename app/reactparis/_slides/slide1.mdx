@@ -30,17 +30,17 @@ import Image from 'next/image'
 
 # To this
 
-<div className="overflow-hidden *:inline">
+<div className="relative">
 <Animate number={3} animationType={["in", "out"]}>
-<Image src={SpeedInsightsDesktop} alt="Desktop speed insights" />
+<Image src={SpeedInsightsDesktop} alt="Desktop speed insights" className="absolute top-0 left-0"/>
 </Animate>
 
-<Animate number={4} animationType={["in", "out"]} delay={0.5}>
-<Image src={SpeedInsightsMobile} alt="Mobile speed insights" />
+<Animate number={4} animationType={["in", "out"]}>
+<Image src={SpeedInsightsMobile} alt="Mobile speed insights" className="absolute top-0 left-0" />
 </Animate>
 
-<Animate number={5} animationType={["in", "out"]} delay={1}>
-<Image src={PageSpeedElkjopMobile} alt="Mobile PageSpeed" />
+<Animate number={5}>
+<Image src={PageSpeedElkjopMobile} alt="Mobile PageSpeed" className="absolute top-0 left-0" />
 </Animate>
 </div>
 
