@@ -29,10 +29,10 @@ const Slide = ({ children }: PropsWithChildren) => {
   };
   useEffect(() => {
     const handleClick = (direction: number) => {
-      console.log("==> Handle click: ", step, maxStep);
+      console.log("==> Handle click: ", step, maxStep, direction);
       if (step === 0 && direction === -1) {
         previousSlide();
-      } else if (step < maxStep) {
+      } else if (step < maxStep || (step === maxStep && direction === -1)) {
         console.log("==> Set step: ", step + direction);
         setStep((prev) => prev + direction);
       } else {
@@ -44,6 +44,7 @@ const Slide = ({ children }: PropsWithChildren) => {
         handleClick(1);
       }
       if (event.key === "ArrowLeft") {
+        console.log("==> Left click");
         handleClick(-1);
       }
     };
@@ -72,7 +73,6 @@ const Slide = ({ children }: PropsWithChildren) => {
 
 export const useSlide = () => {
   const context = useContext(SlideContext);
-  console.log("==> Context: ", context);
   if (!context) {
     throw new Error("useSlide must be used within a SlideContext");
   }
