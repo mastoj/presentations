@@ -38,7 +38,6 @@ export const VideoPlayer = ({
   return (
     <CldVideoPlayer
       key={key}
-      id={id ?? cloudinaryId}
       width={width}
       height={height}
       src={cloudinaryId}
