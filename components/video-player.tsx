@@ -4,14 +4,12 @@ import { CldVideoPlayer } from "next-cloudinary";
 import "../node_modules/next-cloudinary/dist/cld-video-player.css";
 
 export type VideoPlayerProps = {
-  id?: string;
   width: number;
   height: number;
   cloudinaryId: string;
   className?: string;
 };
 export const VideoPlayer = ({
-  id,
   width,
   height,
   cloudinaryId,
