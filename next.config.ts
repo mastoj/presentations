@@ -1,4 +1,5 @@
 import createMDX from "@next/mdx";
+import { withVercelToolbar } from "@vercel/toolbar/plugins/next";
 import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -20,4 +21,4 @@ const withMDX = createMDX({
 });
 
 // Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+export default withVercelToolbar({})(withMDX(nextConfig));
