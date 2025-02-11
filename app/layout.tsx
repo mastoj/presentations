@@ -1,3 +1,4 @@
+import { VercelToolbar } from "@vercel/toolbar/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,6 +29,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white h-screen w-screen`}
       >
         {children}
+        <div className="z-index-50">
+          <VercelToolbar />
+        </div>
       </body>
     </html>
   );
