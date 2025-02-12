@@ -28,6 +28,7 @@ const Slide = ({ children }: PropsWithChildren) => {
     }
   };
   useEffect(() => {
+    const abortController = new AbortController();
     const handleClick = (direction: number) => {
       console.log("==> Handle click: ", step, maxStep, direction);
       if (step === 0 && direction === -1) {
@@ -51,18 +52,20 @@ const Slide = ({ children }: PropsWithChildren) => {
 
     const clickHandler = (e: MouseEvent) => {
       // If target element is link or button don't call handleClick
-      console.log("==> Target: ", e);
       const tagName = (e.target as HTMLElement).tagName.toLowerCase();
       if (tagName === "a" || tagName === "button") {
         return;
       }
       handleClick(1);
     };
-    document.addEventListener("click", clickHandler);
-    document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("click", clickHandler, {
+      signal: abortController.signal,
+    });
+    document.addEventListener("keydown", handleKeydown, {
+      signal: abortController.signal,
+    });
     return () => {
-      document.removeEventListener("click", clickHandler);
-      document.removeEventListener("keydown", handleKeydown);
+      abortController.abort();
     };
   });
   return (
