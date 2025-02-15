@@ -16,15 +16,17 @@ import Image from 'next/image'
 
 # From this
 
-<div className="flex flex-col gap-8">
-<Image src={NoPrices} alt="Missing prices on old page" />
+<div className="flex flex-col gap-8 flex-1">
+<Image src={NoPrices} alt="Missing prices on old page" className="md:w-[80%]" />
 
+<div className="flex-1 flex flex-col gap-8">
 <Animate number={1}>
 <Image src={BadComment1} alt="Bad comments on reddit 1" />
 </Animate>
 <Animate number={2}>
 <Image src={BadComment2} alt="Bad comments on reddit 2" />
 </Animate>
+</div>
 </div>
 
 </Column>
