@@ -1,37 +1,18 @@
-import { Animate } from "@/components/animate"
-import { Column, Columns } from "@/components/columns"
-import { VideoPlayer } from "@/components/video-player"
+import { CentralContent } from "@/components/layouts"
+import { Notes } from "@/components/notes"
 
+<CentralContent>
 
-<Columns columns={3}>
-<Column className="flex flex-col">
+# How do you even get to do such a rewrite in the first place?
 
-## Old site
+</CentralContent>
 
-<div className="flex-1 max-w-[380px]">
-<Animate number={1}>
-<VideoPlayer width={360} height={640} cloudinaryId="b2x-video"/>
-</Animate>
-</div>
-</Column>
-<Column className="flex flex-col">
+<Notes>
 
-## New site with CDN proxy
+From previous experiences I do know that it can some times be hard for developers to really drive the change they want to make. I know we sit on a lot of solutions that really make sense, but we often fail to communicate our ideas so they get heard and instead some other decision from "the business" gets priority.
 
-<div className="flex-1 max-w-[380px]">
-<Animate number={1}>
-<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video" id="next2" />
-</Animate>
-</div>
-</Column>
-<Column className="flex flex-col">
+I do think this is more common in more traditional organizations and organizations that are not delivering tech in one way or another. That is understandable, I mean, take Elkjøp for example. We are a retailer first and live by selling consumer goods to our customers, not by delivering tech. It is a big difference, but at the same time tech is becoming more and more important and it is turning to key differentiator for us in my opinion.
 
-## New site 100% Vercel
+So let's look at how you might be able to drive change where you work. I will not say that this is the only way to do it, but it is a way that I have found to work for me.
 
-<div className="flex-1 max-w-[380px]">
-<Animate number={1}>
-<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video"/>
-</Animate>
-</div>
-</Column>
-</Columns>
+</Notes>

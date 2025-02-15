@@ -1,5 +1,5 @@
 import FlagsProvider from "@/components/flags-provider";
-import { showNotesFlag } from "@/lib/flags";
+import { lightThemeFlag, showNotesFlag } from "@/lib/flags";
 import { VercelToolbar } from "@vercel/toolbar/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -26,10 +26,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const showNotes = await showNotesFlag();
+  const lightTheme = await lightThemeFlag();
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={lightTheme ? "light" : "dark"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white h-screen w-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground h-screen w-screen`}
       >
         <FlagsProvider flags={{ showNotes }}>
           {children}

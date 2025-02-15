@@ -1,0 +1,37 @@
+import { Animate } from "@/components/animate"
+import { Column, Columns } from "@/components/columns"
+import { VideoPlayer } from "@/components/video-player"
+
+
+<Columns columns={3}>
+<Column className="flex flex-col">
+
+## Old site
+
+<div className="flex-1 max-w-[380px]">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="b2x-video"/>
+</Animate>
+</div>
+</Column>
+<Column className="flex flex-col">
+
+## New site with CDN proxy
+
+<div className="flex-1 max-w-[380px]">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video" id="next2" />
+</Animate>
+</div>
+</Column>
+<Column className="flex flex-col">
+
+## New site 100% Vercel
+
+<div className="flex-1 max-w-[380px]">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video"/>
+</Animate>
+</div>
+</Column>
+</Columns>

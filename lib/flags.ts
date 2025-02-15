@@ -20,3 +20,8 @@ export const showNotesFlag = flag<boolean>({
   key: "show-notes",
   adapter: edgeConfigAdapter(),
 });
+
+export const lightThemeFlag = flag<boolean>({
+  key: "light-theme",
+  adapter: edgeConfigAdapter(),
+});
