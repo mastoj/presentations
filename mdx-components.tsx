@@ -3,14 +3,14 @@ import * as motion from "motion/react-client";
 import { PropsWithChildren } from "react";
 
 export const CustomH2 = ({ children }: { children: React.ReactNode }) => (
-  <motion.h1
+  <motion.h2
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="text-xl md:text-2xl font-bold mb-6"
+    className="text-xl md:text-2xl leading-5 font-bold mb-6"
   >
     {children}
-  </motion.h1>
+  </motion.h2>
 );
 
 export const CustomH1 = ({ children }: { children: React.ReactNode }) => (
@@ -18,7 +18,7 @@ export const CustomH1 = ({ children }: { children: React.ReactNode }) => (
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="text-4xl md:text-6xl font-bold mb-6"
+    className="text-4xl md:text-6xl leading-12 font-bold mb-6"
   >
     {children}
   </motion.h1>
