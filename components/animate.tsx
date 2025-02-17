@@ -22,11 +22,12 @@ const isVisible = (
   number: number,
   animationType: AnimationType[]
 ) => {
+  console.log("=> animation: ", animationType, step, number);
   if (animationType.length === 1 && animationType[0] === "in") {
     return step >= number;
   }
   if (animationType.length === 1 && animationType[0] === "out") {
-    return step < number;
+    return step <= number;
   }
   return step === number;
 };
@@ -69,14 +70,12 @@ export const Animate = ({
   }, [number, reportAnimationNumber, animationType]);
 
   return (
-    <div>
-      <AnimatePresence>
-        {isVisible(step, number, animationType) && (
-          <motion.div {...getAnimationEffect(animationEffect, delay)}>
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <AnimatePresence initial={false}>
+      {isVisible(step, number, animationType) && (
+        <motion.div {...getAnimationEffect(animationEffect, delay)}>
+          {children}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

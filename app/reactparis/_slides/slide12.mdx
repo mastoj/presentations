@@ -1,0 +1,38 @@
+import EdgeExplained from '@/assets/images/nextecom/edge-explained.png';
+import Edge from '@/assets/images/nextecom/edge.webp';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Hourglass } from 'lucide-react';
+import Image from 'next/image';
+
+
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# To the edge and back
+
+</CentralContent>
+</Column>
+<Column className="relative">
+<Animate number={0} animationType={["out"]}>
+    <Image src={Edge} alt="Edge" className="absolute top-0 left-0 mt-[10%]" />
+    </Animate>
+<Animate number={1} >
+    <Image src={EdgeExplained} alt="Edge explained" className="absolute top-0 left-0 mt-[35%]" />
+    </Animate>
+</Column>
+</Columns>
+
+
+<Notes>
+
+When started using nextjs and vercel there were quite a significant push to run things more on edge, and we went with it. Most of the time it worked really well, but we did see some unexpected latencies from time to time which was quite annoying since we couldn't reproduce them in a reliable way. The latencies do make sense when we started to think about it. When running things on the edge basically all our requests to the underlying API needs to travel further and that could cause unexpected latencies. Moving the computation to serverless which will run closer to the underlying APIs will make things more reliable when it comes to latencies. Does this mean you should never user edge? Definitely not. If you have the data co-located with your edge nodes you can definitely run on edge, or if you maybe have only a few API calls. I can't tell you what to do, but be sure to test your assumptions.
+
+What we did instead of edge was to move almost everything to static pages instead. Going from a dynamic environment on edge to a static with serverless was something we started a couple of days before we went 100% live and finished about 1-2 hours before the final switch. It was definitely a risky move, but I do think it was the right one since we also started a campaign at the same time as we went live. The performance was great and we could easily handle the load that came.
+
+</Notes>
