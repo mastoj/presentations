@@ -30,7 +30,9 @@ const TitleSlide = ({
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
       )}
-      <h1 className="text-4xl text-right max-w-4xl">{title}</h1>
+      <h1 className="text-4xl md:text-6xl text-right max-w-4xl md:max-w-[75%] w-full">
+        {title}
+      </h1>
       {subtitle && <h2>{subtitle}</h2>}
       <p className="flex flex-col text-right italic text-subtle">
         <span>Tomas Jansson - {dateString}</span>
