@@ -18,13 +18,15 @@ import Image from 'next/image';
 
 </CentralContent>
 </Column>
-<Column className="relative">
+<Column className="flex flex-col justify-center">
+<div className="grid grid-flow-col items-center w-full h-[80%] auto-cols-[100%]">
 <Animate number={0} animationType={["out"]}>
-    <Image src={Edge} alt="Edge" className="absolute top-0 left-0 mt-[10%]" />
+    <Image src={Edge} alt="Edge" className="" />
     </Animate>
-<Animate number={1} >
-    <Image src={EdgeExplained} alt="Edge explained" className="absolute top-0 left-0 mt-[30%]" />
+<Animate number={1} delay={0.2}>
+    <Image src={EdgeExplained} alt="Edge explained" className="w-full md:w-[70%]" />
     </Animate>
+</div>
 </Column>
 </Columns>
 
