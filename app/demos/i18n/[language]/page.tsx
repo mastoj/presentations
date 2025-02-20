@@ -1,4 +1,3 @@
-import { unstable_cache } from "next/cache";
 import Image from "next/image";
 import middleware from "../_images/middleware.png";
 
@@ -7,6 +6,10 @@ type Props = {
     language: string;
   }>;
 };
+
+export async function generateStaticParams() {
+  return [];
+}
 
 // Lookup table for 20 iso 2 language to the word hello and the emoji flag for the country.
 const languageLookup: Record<string, { hello: string; flag: string }> = {
@@ -38,16 +41,18 @@ const languageLookup: Record<string, { hello: string; flag: string }> = {
   th: { hello: "สวัสดี", flag: "🇹🇭" },
 };
 
-const getLocale = unstable_cache(
-  async (language: string) => {
-    const actualLanguage = languageLookup[language] ? language : "en";
-    return actualLanguage;
-  },
-  ["i18n"]
-);
+// const getLocale = unstable_cache(
+//   async (language: string) => {
+//     const actualLanguage = languageLookup[language] ? language : "en";
+//     return actualLanguage;
+//   },
+//   ["i18n"]
+// );
 
 const LanguagePage = async ({ params }: Props) => {
-  const locale = await getLocale((await params).language);
+  //const locale = await getLocale((await params).language);
+  const { language } = await params;
+  const locale = languageLookup[language] ? language : "en";
   return (
     <div className="h-screen w-screen flex flex-col gap-8 justify-center items-center">
       <div className="grid grid-cols-2 p-8 gap-4 max-w-screen">
