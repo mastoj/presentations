@@ -3,11 +3,18 @@ import { PropsWithChildren } from "react";
 
 type Props = {
   columns: number;
+  className?: string;
 };
 
-export const Columns = ({ columns, children }: PropsWithChildren<Props>) => {
+export const Columns = ({
+  columns,
+  children,
+  className,
+}: PropsWithChildren<Props>) => {
   return (
-    <div className={`grid grid-cols-${columns} gap-4 h-full w-full`}>
+    <div
+      className={cn(`grid grid-cols-${columns} gap-4 h-full w-full`, className)}
+    >
       {children}
     </div>
   );
