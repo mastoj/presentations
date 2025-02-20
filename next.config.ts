@@ -4,6 +4,16 @@ import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
+  images: {
+    remotePatterns: [
+      {
+        hostname: "cdn2.thecatapi.com",
+        protocol: "https",
+        search: "",
+        port: "",
+      },
+    ],
+  },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   // Optionally, add any other Next.js config below
   experimental: {
