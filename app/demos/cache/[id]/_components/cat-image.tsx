@@ -1,8 +1,6 @@
 "use client";
 
-type Props = {};
-
-const CatImage = (props: Props) => {
+const CatImage = () => {
   return <div>cat-image</div>;
 };
 

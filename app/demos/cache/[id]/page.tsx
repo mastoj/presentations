@@ -4,11 +4,10 @@ import Image from "next/image";
 import RevalidateButton from "./_components/revalidate-button";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
-export const revalidate = 300;
-
+export const dynamic = "force-static";
 export const generateStaticParams = () => {
   return [];
 };
@@ -68,7 +67,8 @@ const CatImage = async ({ revalidationTime }: { revalidationTime: number }) => {
   );
 };
 
-const CachePage = async ({ params: { id } }: Props) => {
+const CachePage = async ({ params }: Props) => {
+  const { id } = await params;
   console.log("==> Cache page: ", id);
   return (
     <Columns columns={2} className="max-w-xl mx-auto py-40 *:border-2">

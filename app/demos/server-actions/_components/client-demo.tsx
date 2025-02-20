@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { buttonClickAction } from "./actions";
 
-type Props = {};
-
-export const ClientDemo = (props: Props) => {
+export const ClientDemo = () => {
   const handleClick = async () => {
     const result = await buttonClickAction();
     toast.success(result);
