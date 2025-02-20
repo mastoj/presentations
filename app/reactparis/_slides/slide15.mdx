@@ -1,0 +1,56 @@
+import Layouts from '@/assets/images/nextecom/nested-layouts-ui.avif';
+import RSC1 from '@/assets/images/nextecom/rsc1.png';
+import RSC2 from '@/assets/images/nextecom/rsc2.png';
+import RSC3 from '@/assets/images/nextecom/rsc3.png';
+import RSC4 from '@/assets/images/nextecom/rsc4.png';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+import Link from 'next/link';
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# React server components (RSC)
+
+<Link href="/demos/rsc1" target="_blank">RSC demo</Link>
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center">
+<div className="grid grid-flow-col items-center w-full h-[80%] overflow-hidden auto-cols-[100%]">
+<Animate number={0} animationType={["out"]}>
+      <Image src={RSC1} alt="RSC illustration 1"/>
+          </Animate>
+<Animate number={1} delay={0.2} animationType={["in", "out"]}>
+
+      <Image src={RSC2} alt="RSC illustration 2"/>
+    </Animate>
+<Animate number={2} delay={0.4} animationType={["in", "out"]}>
+      <Image src={RSC3} alt="RSC illustration 3"/>
+    </Animate>
+<Animate number={3} delay={0.6} animationType={["in", "out"]}>
+      <Image src={RSC4} alt="RSC illustration 4"/>
+    </Animate>
+      </div>
+    </Column>
+</Columns>
+
+<Notes>
+React server components is probably one of the largest changes in the react ecosystem the last couple of years. Next.js was one of the first to implement it in next.js 13. As I see it this is not something 100% new and more how it has been on other runtimes for a long time, but we have been focusing too much on creating SPAs so we have forgot about it. Doing the initial rendering on the server is how I think it should be done, and then you just sprinkle some client side magic dust where you need it. This leads to faster and simpler applications and less javascript on the client which I think is a good thing. It also simplifies a lot when it comes to application infrastructure since you often can get rid of the whole BFF in a lot of scenarios, instead you can just get the data you need on the server and serve the finished HTML.
+
+So how does it work in next.js? If you have a static page, you can easily make it all run and render on the server. In this scenario everything is considered to be a server components, which basically means it has no interaction.
+
+A component is made a client component by adding "use client" to the top of the file, this basically tells nextjs that this component has interaction that needs to be dealt with. Note that the first render still happens on the server.
+
+This "use client" directive sort of marks a border, and when you cross that border every component you define inside that border will be considered a client component. Again, even though they are considered to be client components the first render still happens on the server.
+
+Note that I said every component you define inside a client component. If you instead pass the component in as argument you can actually get to the scenario where you have a client component wrapping server components, which is very powerful and something that you probably want to use more often than not in a lot of scenarios. This might interfere with how you have been writing components before, but it is something I really think you should adopt if you are using nextjs.
+
+I have one example for all this. This one page shows how things can be classified as server or client components. I have added the most relevant parts of the code to the left. Here you see the page, which is a server component. It is wrapping two components, one that is a server component and one that is a client component. For the client component you can see that the components defined within the client component is considered client components, but the components defined from the outside stays server component.
+
+Let's have a quick look at the rest of the code for this small page.
+</Notes>

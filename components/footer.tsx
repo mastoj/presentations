@@ -16,7 +16,7 @@ const SlideNavigator = () => {
       >
         <PiCaretLeft className="w-6 h-6"></PiCaretLeft>
       </button>
-      <span>
+      <span className="text-nowrap">
         {currentSlide + 1} / {numberOfSlides}
       </span>
       <button
