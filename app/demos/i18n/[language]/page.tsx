@@ -7,6 +7,8 @@ type Props = {
   }>;
 };
 
+export const dynamic = "force-static";
+
 export async function generateStaticParams() {
   return [];
 }
@@ -41,16 +43,7 @@ const languageLookup: Record<string, { hello: string; flag: string }> = {
   th: { hello: "สวัสดี", flag: "🇹🇭" },
 };
 
-// const getLocale = unstable_cache(
-//   async (language: string) => {
-//     const actualLanguage = languageLookup[language] ? language : "en";
-//     return actualLanguage;
-//   },
-//   ["i18n"]
-// );
-
 const LanguagePage = async ({ params }: Props) => {
-  //const locale = await getLocale((await params).language);
   const { language } = await params;
   const locale = languageLookup[language] ? language : "en";
   return (
