@@ -1,9 +1,7 @@
 import Link from "next/link";
 import FadeInComponent from "../_components/fade-in-component";
 
-type Props = {};
-
-const OrdersPage = (props: Props) => {
+const OrdersPage = () => {
   const orders = [
     {
       id: 1,
