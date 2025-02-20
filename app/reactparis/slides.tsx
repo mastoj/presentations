@@ -8,6 +8,7 @@ import Slide10 from "./_slides/slide10.mdx";
 import Slide11 from "./_slides/slide11.mdx";
 import Slide12 from "./_slides/slide12.mdx";
 import Slide13 from "./_slides/slide13.mdx";
+import Slide14 from "./_slides/slide14.mdx";
 import Slide2 from "./_slides/slide2.mdx";
 import Slide3 from "./_slides/slide3.mdx";
 import Slide4 from "./_slides/slide4.mdx";
@@ -46,6 +47,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide11),
     c(Slide12),
     c(Slide13),
+    c(Slide14),
   ];
   return (
     <div className="flex h-full items-center relative">
