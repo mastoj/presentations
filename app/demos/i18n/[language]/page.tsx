@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import Image from "next/image";
 import middleware from "../_images/middleware.png";
 
@@ -37,9 +38,16 @@ const languageLookup: Record<string, { hello: string; flag: string }> = {
   th: { hello: "สวัสดี", flag: "🇹🇭" },
 };
 
+const getLocale = unstable_cache(
+  async (language: string) => {
+    const actualLanguage = languageLookup[language] ? language : "en";
+    return actualLanguage;
+  },
+  ["i18n"]
+);
+
 const LanguagePage = async ({ params }: Props) => {
-  const { language } = await params;
-  const actualLanguage = languageLookup[language] ? language : "en";
+  const locale = await getLocale((await params).language);
   return (
     <div className="h-screen w-screen flex flex-col gap-8 justify-center items-center">
       <div className="grid grid-cols-2 p-8 gap-4 max-w-screen">
@@ -47,8 +55,8 @@ const LanguagePage = async ({ params }: Props) => {
           <Image src={middleware} alt="Middleware" />
         </div>
         <div className="flex flex-col justify-center items-center text-7xl">
-          {languageLookup[actualLanguage].flag}
-          <div>{languageLookup[actualLanguage].hello}</div>
+          {languageLookup[locale].flag}
+          <div>{languageLookup[locale].hello}</div>
         </div>
       </div>
       <div className="mt-auto text-2xl flex flex-row gap-2 pb-8">
