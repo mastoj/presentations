@@ -1,0 +1,28 @@
+import PPR from '@/assets/images/nextecom/ppr.png';
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+import Link from 'next/link';
+
+
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# Partial Prerendering and Streaming
+
+<Link href="/demos/streaming" target="_blank">Streaming demo</Link>
+
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center items-center h-full gap-2">
+    <Image src={PPR} alt="PPR"/>
+</Column>
+</Columns>
+
+<Notes>
+Partial Prerendering is one of the features I am really looking forward to reaching GA. I think it will be a game changer for how you write applications using next.js. With partial prerendering you can create a shell and then have the dynamic parts being streamed in in the same response. This makes it easier for the client to start processing the request faster, as well as getting all the data without doing extra requests. 
+</Notes>
