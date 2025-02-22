@@ -39,7 +39,8 @@ export const CustomBlockquote = ({
   </motion.blockquote>
 );
 
-export const CustomUL = ({ children }: PropsWithChildren) => {
+export const CustomUL = ({ children, ...rest }: PropsWithChildren) => {
+  console.log("==> REST: ", rest);
   return (
     <motion.ul
       initial={{ opacity: 0, x: -20 }}
@@ -55,7 +56,8 @@ export const CustomUL = ({ children }: PropsWithChildren) => {
 export const mdxComponents = {
   h1: CustomH1,
   h2: CustomH2,
-  ul: CustomUL,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ul: (props: any) => <CustomUL {...props}>{props.children}</CustomUL>,
   blockquote: CustomBlockquote,
 };
 
