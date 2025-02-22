@@ -1,3 +1,4 @@
+"use cache";
 import Image from "next/image";
 import middleware from "../_images/middleware.png";
 
@@ -7,10 +8,8 @@ type Props = {
   }>;
 };
 
-export const dynamic = "force-static";
-
 export async function generateStaticParams() {
-  return [];
+  return [{ code: "" }];
 }
 
 // Lookup table for 20 iso 2 language to the word hello and the emoji flag for the country.

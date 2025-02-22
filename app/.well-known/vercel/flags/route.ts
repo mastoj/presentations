@@ -1,5 +1,5 @@
 import { getFlags } from "@/lib/flags";
-import { verifyAccess, type ApiData } from "@vercel/flags";
+import { verifyAccess, type ApiData } from "flags";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {

@@ -3,6 +3,10 @@ import { Toaster } from "@/components/ui/sonner";
 import { ClientDemo } from "./_components/client-demo";
 import { FormDemo } from "./_components/form-demo";
 
+export const generateStaticParams = async () => {
+  return [{ code: "" }];
+};
+
 const ServerActionsPage = async () => {
   return (
     <>

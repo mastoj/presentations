@@ -1,5 +1,9 @@
-import { PresentationCard } from "./components/presentation-card";
-import { presentations } from "./data/presentations";
+import { PresentationCard } from "../components/presentation-card";
+import { presentations } from "../data/presentations";
+
+export const generateStaticParams = async () => {
+  return [{ code: "" }];
+};
 
 export default function Home() {
   const title = "Tomas' presentations";

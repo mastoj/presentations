@@ -5,7 +5,6 @@ import { useSlideshow } from "./slide-show-hooks";
 const SlideNavigator = () => {
   const { numberOfSlides, currentSlide, nextSlide, previousSlide } =
     useSlideshow();
-  console.log("==> Number of slides: ", numberOfSlides);
 
   return (
     <div className="text-subtle flex items-center gap-2">

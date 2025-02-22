@@ -2,7 +2,7 @@
 import background from "@/assets/images/nextecom/homepage.png";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
 import TitleSlide from "@/components/title-slide";
-import { ComponentType, createElement } from "react";
+import { ComponentType, createElement, use } from "react";
 import Slide1 from "./_slides/slide1.mdx";
 import Slide10 from "./_slides/slide10.mdx";
 import Slide11 from "./_slides/slide11.mdx";
@@ -27,9 +27,10 @@ import Slide8 from "./_slides/slide8.mdx";
 import Slide9 from "./_slides/slide9.mdx";
 
 type SlideProps = {
-  initialSlide: number;
+  initialSlide: Promise<number>;
 };
 export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
+  const acutalNumber = use(initialSlide);
   const presentationUrl = `https://presentations.2mas.xyz/reactparis`;
   // eslint-disable-next-line react/display-name
   const c = (component: ComponentType) => () => createElement(component);
@@ -69,7 +70,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     <div className="flex h-full items-center relative ">
       <Slideshow
         slides={slides}
-        initialSlide={initialSlide}
+        initialSlide={acutalNumber}
         presentationUrl={presentationUrl}
         // className=""
       />

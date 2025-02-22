@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
   // Optionally, add any other Next.js config below
   experimental: {
     reactCompiler: true,
+    ppr: true,
+    dynamicIO: true,
   },
 };
 const withMDX = createMDX({

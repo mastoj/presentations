@@ -4,6 +4,10 @@ import { ServerClient } from "../_components/server-client";
 import client from "../_images/client.png";
 import page from "../_images/page.png";
 
+export const generateStaticParams = () => {
+  return [{ code: "" }];
+};
+
 const ServerPage = async () => {
   console.log("ServerPage");
   return (

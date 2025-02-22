@@ -7,9 +7,8 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-export const dynamic = "force-static";
 export const generateStaticParams = () => {
-  return [];
+  return [{ code: "" }];
 };
 
 // Get random cat image url

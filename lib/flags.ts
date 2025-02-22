@@ -1,6 +1,6 @@
 import { get } from "@vercel/edge-config";
-import { FlagOverridesType, decrypt } from "@vercel/flags";
-import { flag } from "@vercel/flags/next";
+import { FlagOverridesType, decrypt } from "flags";
+import { flag } from "flags/next";
 import { createEdgeConfigAdapter } from "./edge-config-adapter";
 
 export const getFlags = async (overrideString?: string) => {
@@ -25,3 +25,5 @@ export const lightThemeFlag = flag<boolean>({
   key: "light-theme",
   adapter: edgeConfigAdapter(),
 });
+
+export const precomputeFlags = [showNotesFlag, lightThemeFlag] as const;
