@@ -1,11 +1,12 @@
+"use cache";
 import { PresentationCard } from "../components/presentation-card";
 import { presentations } from "../data/presentations";
 
 export const generateStaticParams = async () => {
-  return [{ code: "" }];
+  return [];
 };
 
-export default function Home() {
+export default async function Home() {
   const title = "Tomas' presentations";
   return (
     <div className="container mx-auto px-4 py-8">

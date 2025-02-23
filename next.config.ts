@@ -19,7 +19,8 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
     ppr: true,
-    dynamicIO: true,
+    useCache: true,
+    //    dynamicIO: true,
   },
 };
 const withMDX = createMDX({

@@ -1,11 +1,9 @@
 "use cache";
-import { precomputeFlags } from "@/lib/flags";
-import { generatePermutations } from "flags/next";
+import { Suspense } from "react";
 import { ReactParisSlides } from "./slides";
 
 export const generateStaticParams = async () => {
-  const codes = await generatePermutations(precomputeFlags);
-  return codes.map((code) => ({ code }));
+  return [];
 };
 
 type SlideProps = {
@@ -15,7 +13,11 @@ const ReactParisPage = async ({ searchParams }: SlideProps) => {
   const slideNumber = searchParams.then((sp) =>
     sp.slide ? parseInt(sp.slide as string, 10) : 0
   );
-  return <ReactParisSlides initialSlide={slideNumber} />;
+  return (
+    <Suspense>
+      <ReactParisSlides initialSlide={slideNumber} />;
+    </Suspense>
+  );
 };
 
 export default ReactParisPage;

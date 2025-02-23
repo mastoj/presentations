@@ -1,4 +1,4 @@
-"use cache";
+//"use cache";
 import Image from "next/image";
 import middleware from "../_images/middleware.png";
 
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return [{ code: "" }];
+  return [];
 }
 
 // Lookup table for 20 iso 2 language to the word hello and the emoji flag for the country.
@@ -42,9 +42,15 @@ const languageLookup: Record<string, { hello: string; flag: string }> = {
   th: { hello: "สวัสดี", flag: "🇹🇭" },
 };
 
+const getLocale = async (language: string) => {
+  "use cache";
+  return languageLookup[language] ? language : "en";
+};
+
 const LanguagePage = async ({ params }: Props) => {
   const { language } = await params;
-  const locale = languageLookup[language] ? language : "en";
+  const locale = await getLocale(language);
+  // const locale = languageLookup[language] ? language : "en";
   return (
     <div className="h-screen w-screen flex flex-col gap-8 justify-center items-center">
       <div className="grid grid-cols-2 p-8 gap-4 max-w-screen">

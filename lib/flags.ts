@@ -1,7 +1,7 @@
 import { get } from "@vercel/edge-config";
 import { FlagOverridesType, decrypt } from "flags";
 import { flag } from "flags/next";
-import { createEdgeConfigAdapter } from "./edge-config-adapter";
+import { createDummyAdapter } from "./dummy-adapter";
 
 export const getFlags = async (overrideString?: string) => {
   const flags = (await get("flags")) as Record<string, boolean>;
@@ -12,18 +12,16 @@ export const getFlags = async (overrideString?: string) => {
   return { ...flags, ...overrides };
 };
 
-const edgeConfigAdapter = createEdgeConfigAdapter(process.env.EDGE_CONFIG!, {
-  teamSlug: "mastojs-projects",
-});
+const dummyAdapter = createDummyAdapter();
 
 export const showNotesFlag = flag<boolean>({
   key: "show-notes",
-  adapter: edgeConfigAdapter(),
+  adapter: dummyAdapter(),
 });
 
 export const lightThemeFlag = flag<boolean>({
   key: "light-theme",
-  adapter: edgeConfigAdapter(),
+  adapter: dummyAdapter(),
 });
 
 export const precomputeFlags = [showNotesFlag, lightThemeFlag] as const;
