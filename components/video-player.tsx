@@ -16,6 +16,7 @@ export const VideoPlayer = ({
   className,
 }: VideoPlayerProps) => {
   const posterUrl = `https://res.cloudinary.com/dfsp4lpf1/video/upload/so_0/c_limit,h_700,w_400/${cloudinaryId}.avif`;
+
   return (
     <CldVideoPlayer
       width={width}

@@ -3,12 +3,12 @@ import { Column, Columns } from "@/components/columns"
 import { VideoPlayer } from "@/components/video-player"
 
 
-<Columns columns={3}>
+<Columns columns={3} className="w-[1200px] mx-auto">
 <Column className="flex flex-col">
 
 ## Old site
 
-<div className="flex-1 max-w-[380px]">
+<div className="flex-1">
 <Animate number={1}>
 <VideoPlayer width={360} height={640} cloudinaryId="b2x-video"/>
 </Animate>
@@ -18,7 +18,7 @@ import { VideoPlayer } from "@/components/video-player"
 
 ## New site with CDN proxy
 
-<div className="flex-1 max-w-[380px]">
+<div className="flex-1">
 <Animate number={1}>
 <VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video" id="next2" />
 </Animate>
@@ -28,7 +28,7 @@ import { VideoPlayer } from "@/components/video-player"
 
 ## New site 100% Vercel
 
-<div className="flex-1 max-w-[380px]">
+<div className="flex-1">
 <Animate number={1}>
 <VideoPlayer width={360} height={640} cloudinaryId="next-pre-cdn-video"/>
 </Animate>

@@ -22,7 +22,6 @@ const isVisible = (
   number: number,
   animationType: AnimationType[]
 ) => {
-  console.log("=> animation: ", animationType, step, number);
   if (animationType.length === 1 && animationType[0] === "in") {
     return step >= number;
   }

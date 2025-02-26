@@ -3,6 +3,7 @@ import background from "@/assets/images/nextecom/homepage.png";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
 import TitleSlide from "@/components/title-slide";
 import { ComponentType, createElement } from "react";
+import SlideVideo from "./_slides/slide-video.mdx";
 import Slide1 from "./_slides/slide1.mdx";
 import Slide10 from "./_slides/slide10.mdx";
 import Slide11 from "./_slides/slide11.mdx";
@@ -45,6 +46,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide1),
     c(Slide2),
     c(Slide3),
+    c(SlideVideo),
     c(Slide4),
     c(Slide5),
     c(Slide6),
