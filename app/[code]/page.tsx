@@ -1,4 +1,4 @@
-import { PresentationCard } from "./components/presentation-card";
+import { PresentationCard } from "../components/presentation-card";
 import { presentations } from "./data/presentations";
 
 export default function Home() {

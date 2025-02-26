@@ -1,5 +1,5 @@
 import { createClient, type EdgeConfigClient } from "@vercel/edge-config";
-import type { Adapter } from "@vercel/flags";
+import type { Adapter } from "flags";
 
 /**
  * Allows creating a custom Edge Config adapter for feature flags
