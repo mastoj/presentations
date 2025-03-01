@@ -10,9 +10,9 @@ const getLanguagePath = (pathname: string) => {
   return languagePath;
 };
 
-const getUrl = (request: NextRequest, code: string, pathOverride?: string) =>
+const getUrl = (request: NextRequest, code?: string, pathOverride?: string) =>
   new URL(
-    `/${code}${pathOverride ?? request.nextUrl.pathname}${
+    `${code ? "/" + code : ""}${pathOverride ?? request.nextUrl.pathname}${
       request.nextUrl.search
     }`,
     request.url
@@ -22,7 +22,13 @@ const HandleI18nDemo = (request: NextRequest, code: string) => {
   const languagePath = getLanguagePath(request.nextUrl.pathname);
 
   if (languagePath) {
-    const response = NextResponse.redirect(getUrl(request, code));
+    const pathOverride = request.nextUrl.pathname.replace(
+      "/" + languagePath,
+      ""
+    );
+    const response = NextResponse.redirect(
+      getUrl(request, undefined, pathOverride)
+    );
     response.cookies.set(languageCookieName, languagePath);
     return response;
   }
