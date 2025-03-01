@@ -9,29 +9,33 @@ import { VideoPlayer } from "@/components/video-player"
 ## Old site
 
 <div className="flex-1">
-<Animate number={1}>
+<Animate number={1} className="w-[360px] h-[640px]">
 <VideoPlayer width={360} height={640} cloudinaryId="nextecom/b2x-video"/>
 </Animate>
 </div>
 </Column>
 <Column className="flex flex-col">
 
+
 ## New site with CDN proxy
 
 <div className="flex-1">
-<Animate number={1}>
+<Animate number={1} delay={10} className="w-[360px] h-[640px]">
 <VideoPlayer width={360} height={640} cloudinaryId="nextecom/next-pre-cdn-video" id="next2" />
 </Animate>
 </div>
+
 </Column>
+
 <Column className="flex flex-col">
 
 ## New site 100% Vercel
 
-<div className="flex-1">
-<Animate number={1}>
-<VideoPlayer width={360} height={640} cloudinaryId="nextecom/next-100-vercel"/>
+<div className="flex-1 w-[332px] h-[650px] pt-[27px]">
+<Animate number={1} delay={20} className="">
+<VideoPlayer width={300} height={580} cloudinaryId="nextecom/next-100-vercel"/>
 </Animate>
 </div>
+
 </Column>
 </Columns>

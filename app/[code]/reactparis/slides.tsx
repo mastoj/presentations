@@ -44,9 +44,9 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
       />
     ),
     c(Slide1),
+    c(SlideVideo),
     c(Slide2),
     c(Slide3),
-    c(SlideVideo),
     c(Slide4),
     c(Slide5),
     c(Slide6),
