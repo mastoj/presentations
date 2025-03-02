@@ -43,7 +43,7 @@ const getRandomCat = async (revalidationTime: number) => {
         timestamp: string;
       };
     },
-    [],
+    [revalidationTime.toString()],
     {
       revalidate: revalidationTime,
       tags: ["cats", `variant-${revalidationTime.toString()}`],
