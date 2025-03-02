@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
         search: "",
         port: "",
       },
+      {
+        hostname: "28.media.tumblr.com",
+        protocol: "https",
+        search: "",
+        port: "",
+      },
     ],
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
