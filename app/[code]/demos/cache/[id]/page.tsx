@@ -21,13 +21,10 @@ const getRandomCat = async (revalidationTime: number) => {
     async () => {
       const timestamp = new Date().toUTCString();
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?rnd=${revalidationTime}`
-        // {
-        //   next: {
-        //     revalidate: revalidationTime,
-        //     tags: ["cats", `variant-${revalidationTime.toString()}`],
-        //   },
-        // }
+        `https://api.thecatapi.com/v1/images/search?rnd=${revalidationTime}`,
+        {
+          cache: "no-cache",
+        }
       );
       const data = await response.json();
       console.log(
