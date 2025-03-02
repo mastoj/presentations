@@ -36,7 +36,7 @@ const getRandomCat = async (revalidationTime: number) => {
 
 const getTime = async ({ revalidationTime }: { revalidationTime: number }) => {
   return cache(
-    async () => new Date().toString(),
+    async () => new Date().toUTCString(),
     [revalidationTime.toString(), "cat"],
     {
       revalidate: revalidationTime,

@@ -66,7 +66,7 @@ export default function ReverseProgressButton({
     return (
       <Button
         onClick={onClick}
-        className={`relative overflow-hidden bg-red-100 text-red-800 ${className}`}
+        className={`relative overflow-hidden bg-red-100 text-red-800 ${className} cursor-pointer`}
       >
         {error}
       </Button>
@@ -76,7 +76,7 @@ export default function ReverseProgressButton({
   return (
     <Button
       onClick={onClick}
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden ${className} cursor-pointer`}
       style={{
         position: "relative",
       }}

@@ -6,7 +6,7 @@ const Time = () => {
   const [time, setTime] = useState("");
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
+      setTime(new Date().toUTCString());
     }, 1000);
     return () => clearInterval(interval);
   });
