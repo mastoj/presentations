@@ -31,7 +31,11 @@ const RevalidateButton = (props: PropsWithChildren<Props>) => {
   if (props.type === "countdown-button") {
     return <ReverseProgressButton {...props} onClick={handleRevalidate} />;
   }
-  return <Button onClick={handleRevalidate}>{children}</Button>;
+  return (
+    <Button onClick={handleRevalidate} className="cursor-pointer">
+      {children}
+    </Button>
+  );
 };
 
 export default RevalidateButton;
