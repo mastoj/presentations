@@ -15,31 +15,40 @@ export const generateStaticParams = () => {
 
 // Get random cat image url
 const getRandomCat = async (revalidationTime: number) => {
-  return cache(async () => {
-    const timestamp = new Date().toUTCString();
-    const response = await fetch(
-      `https://api.thecatapi.com/v1/images/search?rnd=${revalidationTime}`,
-      {
-        next: {
-          revalidate: revalidationTime,
-          tags: ["cats", `variant-${revalidationTime.toString()}`],
-        },
-      }
-    );
-    const data = await response.json();
-    console.log(
-      "==> Revalidation time: ",
-      revalidationTime,
-      data[0].url,
-      new Date().toISOString()
-    );
-    return { ...data[0], timestamp } as {
-      url: string;
-      width: number;
-      height: number;
-      timestamp: string;
-    };
-  }, ["cats", `variant-${revalidationTime.toString()}`])();
+  const cacheTags = ["cats", `variant-${revalidationTime.toString()}`];
+  console.log("==> Cache tags: ", cacheTags);
+  return cache(
+    async () => {
+      const timestamp = new Date().toUTCString();
+      const response = await fetch(
+        `https://api.thecatapi.com/v1/images/search?rnd=${revalidationTime}`
+        // {
+        //   next: {
+        //     revalidate: revalidationTime,
+        //     tags: ["cats", `variant-${revalidationTime.toString()}`],
+        //   },
+        // }
+      );
+      const data = await response.json();
+      console.log(
+        "==> Revalidation time: ",
+        revalidationTime,
+        data[0].url,
+        new Date().toISOString()
+      );
+      return { ...data[0], timestamp } as {
+        url: string;
+        width: number;
+        height: number;
+        timestamp: string;
+      };
+    },
+    [],
+    {
+      revalidate: revalidationTime,
+      tags: ["cats", `variant-${revalidationTime.toString()}`],
+    }
+  )();
 };
 
 const CatImage = async ({ revalidationTime }: { revalidationTime: number }) => {
@@ -80,20 +89,20 @@ const CachePage = async ({ params }: Props) => {
   const { id } = await params;
   console.log("==> Cache page: ", id);
   return (
-    <div className="grid grid-cols-1 h-screen gap-2 overflow-hidden">
-      <div className="text-2xl font-bold flex flex-row justify-center">
+    <div className="grid grid-cols-1 h-screen gap-2 overflow-hidden justify-center my-auto">
+      <div className="text-2xl font-bold flex flex-row justify-center mt-20">
         Current time: <Time />
       </div>
       <Columns
         columns={2}
-        className="max-w-[800px] mx-auto *:border-2 flex-1 h-[90%]"
+        className="max-w-[800px] mx-auto *:border-2 flex-1 h-[75%]"
       >
-        <Column className="flex flex-row justify-center items-center h-auto">
+        <Column className="flex flex-row justify-center items-center h-[75%]">
           <RevalidateButton tag="cats" type="revalidate-button">
             Revalidate all
           </RevalidateButton>
         </Column>
-        <Column>
+        <Column className="h-[75%]">
           <div className="grid grid-rows-2 w-full gap-2 h-full">
             {[10, 20].map((revalidationTime) => (
               <CatImage
