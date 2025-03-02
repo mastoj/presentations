@@ -31,7 +31,7 @@ const getRandomCat = async (revalidationTime: number) => {
         "==> Revalidation time: ",
         revalidationTime,
         data[0].url,
-        new Date().toISOString()
+        timestamp
       );
       return { ...data[0], timestamp } as {
         url: string;
