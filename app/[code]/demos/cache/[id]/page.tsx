@@ -1,4 +1,5 @@
 import { Column, Columns } from "@/components/columns";
+import Time from "@/components/time";
 import { unstable_cache as cache } from "next/cache";
 import Image from "next/image";
 import RevalidateButton from "./_components/revalidate-button";
@@ -82,23 +83,31 @@ const CachePage = async ({ params }: Props) => {
   const { id } = await params;
   console.log("==> Cache page: ", id);
   return (
-    <Columns columns={2} className="max-w-[800px] mx-auto py-40 *:border-2">
-      <Column className="flex flex-row justify-center items-center">
-        <RevalidateButton tag="cats" type="revalidate-button">
-          Revalidate all
-        </RevalidateButton>
-      </Column>
-      <Column>
-        <div className="grid grid-rows-2 w-full gap-2 h-full">
-          {[10, 20].map((revalidationTime) => (
-            <CatImage
-              key={revalidationTime}
-              revalidationTime={revalidationTime}
-            />
-          ))}
-        </div>
-      </Column>
-    </Columns>
+    <div className="grid grid-cols-1 h-screen gap-2">
+      <div className="text-2xl font-bold flex flex-row justify-center">
+        Current time: <Time />
+      </div>
+      <Columns
+        columns={2}
+        className="max-w-[800px] mx-auto *:border-2 flex-1 h-auto"
+      >
+        <Column className="flex flex-row justify-center items-center h-auto">
+          <RevalidateButton tag="cats" type="revalidate-button">
+            Revalidate all
+          </RevalidateButton>
+        </Column>
+        <Column>
+          <div className="grid grid-rows-2 w-full gap-2">
+            {[10, 20].map((revalidationTime) => (
+              <CatImage
+                key={revalidationTime}
+                revalidationTime={revalidationTime}
+              />
+            ))}
+          </div>
+        </Column>
+      </Columns>
+    </div>
   );
 };
 
