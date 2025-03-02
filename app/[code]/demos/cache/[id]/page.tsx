@@ -35,7 +35,7 @@ const getRandomCat = async (revalidationTime: number) => {
 
 const getTime = async ({ revalidationTime }: { revalidationTime: number }) => {
   return cache(
-    async () => new Date().toLocaleTimeString(),
+    async () => new Date().toString(),
     [revalidationTime.toString(), "cat"],
     {
       revalidate: revalidationTime,
@@ -46,8 +46,13 @@ const getTime = async ({ revalidationTime }: { revalidationTime: number }) => {
 
 const CatImage = async ({ revalidationTime }: { revalidationTime: number }) => {
   const catData = await getRandomCat(revalidationTime);
+  const durationInMs = revalidationTime * 1000;
+  const startTime = await getTime({ revalidationTime });
+
+  console.log("==> Cat image: ", revalidationTime, startTime);
   return (
-    <div className="block gap-2 h-full w-full">
+    <div className="flex flex-col gap-2 h-full w-full">
+      <span>{startTime}</span>
       <div className="h-[80%] overflow-hidden p-4">
         <Image
           src={catData.url}
@@ -57,9 +62,15 @@ const CatImage = async ({ revalidationTime }: { revalidationTime: number }) => {
           className="object-contain max-w-full max-h-full shadow-lg rounded-lg"
         />
       </div>
-      <div className="h-[20%] flex flex-row justify-between">
-        <span>{await getTime({ revalidationTime })}</span>
-        <RevalidateButton tag={`variant-${revalidationTime.toString()}`}>
+      <div className="h-[20%] flex flex-row justify-center items-center">
+        <RevalidateButton
+          tag={`variant-${revalidationTime.toString()}`}
+          startTime={startTime.toString()}
+          durationInMs={durationInMs}
+          runningText={`Revalidates in ${revalidationTime}s`}
+          completedText="Get the new image"
+          type="countdown-button"
+        >
           Revalidate {revalidationTime}
         </RevalidateButton>
       </div>
@@ -71,13 +82,15 @@ const CachePage = async ({ params }: Props) => {
   const { id } = await params;
   console.log("==> Cache page: ", id);
   return (
-    <Columns columns={2} className="max-w-xl mx-auto py-40 *:border-2">
-      <Column>
-        <RevalidateButton tag="cats">Revalidate all</RevalidateButton>
+    <Columns columns={2} className="max-w-[800px] mx-auto py-40 *:border-2">
+      <Column className="flex flex-row justify-center items-center">
+        <RevalidateButton tag="cats" type="revalidate-button">
+          Revalidate all
+        </RevalidateButton>
       </Column>
       <Column>
         <div className="grid grid-rows-2 w-full gap-2 h-full">
-          {[5, 10].map((revalidationTime) => (
+          {[10, 20].map((revalidationTime) => (
             <CatImage
               key={revalidationTime}
               revalidationTime={revalidationTime}
