@@ -21,10 +21,7 @@ const getRandomCat = async (revalidationTime: number) => {
     async () => {
       const timestamp = new Date().toUTCString();
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?rnd=${revalidationTime}`,
-        {
-          cache: "no-cache",
-        }
+        `https://api.thecatapi.com/v1/images/search?rnd=${revalidationTime}`
       );
       const data = await response.json();
       console.log(
@@ -66,6 +63,7 @@ const CatImage = async ({ revalidationTime }: { revalidationTime: number }) => {
           className="object-contain max-w-full max-h-full shadow-lg rounded-lg"
         />
       </div>
+      {catData.url}
       <div className="h-[20%] flex flex-row justify-center items-center">
         <RevalidateButton
           tag={`variant-${revalidationTime.toString()}`}
