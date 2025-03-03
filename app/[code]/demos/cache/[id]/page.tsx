@@ -40,7 +40,7 @@ const getRandomCat = async (revalidationTime: number) => {
     [revalidationTime.toString()],
     {
       revalidate: revalidationTime,
-      tags: ["cats", `variant-${revalidationTime.toString()}`],
+      tags: cacheTags,
     }
   )();
 };
@@ -49,8 +49,6 @@ const CatImage = async ({ revalidationTime }: { revalidationTime: number }) => {
   const catData = await getRandomCat(revalidationTime);
   const durationInMs = revalidationTime * 1000;
   const startTime = catData.timestamp;
-
-  console.log("==> Cat image: ", revalidationTime, startTime);
   return (
     <div className="flex flex-col gap-2 h-full w-full">
       <span>{startTime}</span>
