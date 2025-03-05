@@ -1,0 +1,28 @@
+import Edge from '@/assets/images/nextecom/edge.webp';
+import ProxyCdnFCP from '@/assets/images/nextecom/proxy-cdn-fcp.png';
+import ProxyCdnTTFB from '@/assets/images/nextecom/proxy-cdn-ttfb.png';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+
+
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# Minimize network jumps
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center items-center h-full gap-4">
+    <Image src={ProxyCdnTTFB} alt="TTFB" />
+    <Image src={ProxyCdnFCP} alt="fcp" />
+</Column>
+</Columns>
+
+
+<Notes>
+</Notes>

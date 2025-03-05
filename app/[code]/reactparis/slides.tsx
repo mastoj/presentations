@@ -19,6 +19,7 @@ import Slide2 from "./_slides/slide2.mdx";
 import Slide20 from "./_slides/slide20.mdx";
 import Slide21 from "./_slides/slide21.mdx";
 import Slide22 from "./_slides/slide22.mdx";
+import Slide23 from "./_slides/slide23.mdx";
 import Slide3 from "./_slides/slide3.mdx";
 import Slide4 from "./_slides/slide4.mdx";
 import Slide5 from "./_slides/slide5.mdx";
@@ -45,6 +46,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     ),
     c(Slide1),
     c(SlideVideo),
+    c(Slide23),
     c(Slide2),
     c(Slide3),
     c(Slide4),
