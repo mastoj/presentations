@@ -28,6 +28,10 @@ const Slide = ({ children }: PropsWithChildren) => {
     }
   };
   useEffect(() => {
+    const slidesDiv = document.querySelector(".slides");
+    if (slidesDiv === null) {
+      throw new Error("No slides div found");
+    }
     const abortController = new AbortController();
     const handleClick = (direction: number) => {
       console.log("==> Handle click: ", step, maxStep, direction);
@@ -58,10 +62,10 @@ const Slide = ({ children }: PropsWithChildren) => {
       }
       handleClick(1);
     };
-    document.addEventListener("click", clickHandler, {
+    slidesDiv.addEventListener("click", clickHandler as EventListener, {
       signal: abortController.signal,
     });
-    document.addEventListener("keydown", handleKeydown, {
+    slidesDiv.addEventListener("keydown", handleKeydown as EventListener, {
       signal: abortController.signal,
     });
     return () => {

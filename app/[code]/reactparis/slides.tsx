@@ -72,7 +72,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     () => <ThankYouSlide backgroundImage={background} />,
   ];
   return (
-    <div className="flex h-full items-center relative ">
+    <div className="flex h-full items-center relative slides ">
       <Slideshow
         slides={slides}
         initialSlide={initialSlide}
