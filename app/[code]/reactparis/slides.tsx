@@ -1,6 +1,7 @@
 "use client";
 import background from "@/assets/images/nextecom/homepage.png";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
+import { ThankYouSlide } from "@/components/thank-you-slide";
 import TitleSlide from "@/components/title-slide";
 import { ComponentType, createElement } from "react";
 import SlideVideo from "./_slides/slide-video.mdx";
@@ -46,7 +47,6 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     ),
     c(Slide1),
     c(SlideVideo),
-    c(Slide23),
     c(Slide2),
     c(Slide3),
     c(Slide4),
@@ -58,6 +58,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide10),
     c(Slide11),
     c(Slide12),
+    c(Slide23),
     c(Slide13),
     c(Slide14),
     c(Slide15),
@@ -68,6 +69,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     c(Slide20),
     c(Slide21),
     c(Slide22),
+    () => <ThankYouSlide backgroundImage={background} />,
   ];
   return (
     <div className="flex h-full items-center relative ">
