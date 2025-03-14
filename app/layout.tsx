@@ -27,6 +27,7 @@ export default async function RootLayout({
 }>) {
   const showNotes = await showNotesFlag();
   const lightTheme = await lightThemeFlag();
+  const isDevelopment = process.env.NODE_ENV === "development";
   return (
     <html lang="en" className={lightTheme ? "light" : "dark"}>
       <body
@@ -34,9 +35,7 @@ export default async function RootLayout({
       >
         <FlagsProvider flags={{ showNotes }}>
           {children}
-          <div className="z-index-50">
-            <VercelToolbar />
-          </div>
+          <div className="z-index-50">{isDevelopment && <VercelToolbar />}</div>
         </FlagsProvider>
       </body>
     </html>
