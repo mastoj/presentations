@@ -19,7 +19,7 @@ const TitleSlide = ({
   const dateString = date.toISOString().split("T")[0];
   const slideLink = `https://presentations.2mas.xyz/${presentationSlug}`;
   return (
-    <div className="flex flex-col h-full w-full justify-center items-end gap-4 px-4 md:px-32">
+    <div className="flex flex-col h-full aspect-video mx-auto justify-center items-end gap-4 px-4 md:px-32">
       {backgroundImage && (
         <div className="absolute inset-0 -z-10 w-full h-full">
           <Image
