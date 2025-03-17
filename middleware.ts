@@ -3,7 +3,7 @@ import { precompute } from "flags/next";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-const languageCookieName = "nextndc-lang";
+const languageCookieName = "demo-lang";
 
 const getLanguagePath = (pathname: string) => {
   const languagePath = pathname.split("/")[3];
