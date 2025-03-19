@@ -16,7 +16,7 @@ const TitleSlide = ({
   presentationSlug,
 }: Props) => {
   // To yyyy-MM-dd string
-  const dateString = date.toISOString().split("T")[0];
+  const dateString = date.toLocaleDateString("sv-SE");
   const slideLink = `https://presentations.2mas.xyz/${presentationSlug}`;
   return (
     <div className="flex flex-col h-full aspect-video mx-auto justify-center items-end gap-4 px-4 md:px-32">

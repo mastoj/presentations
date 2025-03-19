@@ -39,7 +39,7 @@ export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
     () => (
       <TitleSlide
         title="What we learned rebuilding the largest Nordic electronic retail website in Next.js?"
-        date={new Date(2025, 3, 20)}
+        date={new Date(2025, 2, 20)}
         backgroundImage={background}
         presentationSlug="reactparis"
       />
