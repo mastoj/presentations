@@ -23,12 +23,11 @@ const HandleI18nDemo = (request: NextRequest, code: string) => {
 
   if (languagePath) {
     const pathOverride = request.nextUrl.pathname.replace(
-      "/" + languagePath,
-      ""
+      "/i18n/" + languagePath,
+      "/i18n"
     );
-    const response = NextResponse.redirect(
-      getUrl(request, undefined, pathOverride)
-    );
+    const url = getUrl(request, undefined, pathOverride);
+    const response = NextResponse.redirect(url);
     response.cookies.set(languageCookieName, languagePath);
     return response;
   }
