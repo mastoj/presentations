@@ -1,5 +1,6 @@
 import Deployments from '@/assets/images/nextecom/deployments.png';
 import Speedinsights from '@/assets/images/nextecom/speed_insights.png';
+import VercelEnvironments from '@/assets/images/nextecom/vercel-environments.png';
 import { Animate } from "@/components/animate";
 import { Column, Columns } from "@/components/columns";
 import { CentralContent } from "@/components/layouts";
@@ -32,8 +33,11 @@ import Image from 'next/image';
 <Animate number={1} delay={0.2} animationType={["in", "out"]}>
     <Image src={Deployments} alt="Deployments"/>
     </Animate>
-<Animate number={2} delay={0.4}>
+<Animate number={2} delay={0.4} animationType={["in", "out"]}>
       <Image src={Speedinsights} alt="Speed insights"/>
+</Animate>
+<Animate number={3} delay={0.6}>
+      <Image src={VercelEnvironments} alt="Vercel environments"/>
 </Animate>
       </div>
     </Column>
