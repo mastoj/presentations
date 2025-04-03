@@ -23,7 +23,8 @@ export function PresentationCard({
           {presentation.title}
         </CardTitle>
         <CardDescription className="text-xs text-muted-foreground">
-          {presentation.date}
+          {presentation.date} -{" "}
+          <span className="font-bold text-white">{presentation.event}</span>
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">

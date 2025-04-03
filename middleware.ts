@@ -55,5 +55,11 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/demos/i18n/:path*", "/demos/:path*", "/reactparis/:path*", "/"],
+  matcher: [
+    "/demos/i18n/:path*",
+    "/demos/:path*",
+    "/reactparis/:path*",
+    "/refill/:path*",
+    "/",
+  ],
 };

@@ -31,17 +31,17 @@ import { ComponentType, createElement } from "react";
 type SlideProps = {
   initialSlide: number;
 };
-export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
-  const presentationUrl = `https://presentations.2mas.xyz/reactparis`;
+export const RefillSlides = ({ initialSlide }: SlideProps) => {
+  const presentationUrl = `https://presentations.2mas.xyz/refill/2025`;
   // eslint-disable-next-line react/display-name
   const c = (component: ComponentType) => () => createElement(component);
   const slides: SlideDefinition[] = [
     () => (
       <TitleSlide
         title="What we learned rebuilding the largest Nordic electronic retail website in Next.js?"
-        date={new Date(2025, 2, 20)}
+        date={new Date(2025, 3, 4)}
         backgroundImage={background}
-        presentationSlug="reactparis"
+        presentationSlug="refill/2025"
       />
     ),
     c(Slide1),
