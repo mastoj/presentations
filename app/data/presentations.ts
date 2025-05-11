@@ -34,8 +34,7 @@ export const presentations: Presentation[] = [
   {
     id: "3",
     event: "NDC Oslo 2025",
-    title:
-      "What we learned rebuilding the largest Nordic electronic retail website in Next.js?",
+    title: "Learnings from One Year in Production with Next.js on Vercel",
     description:
       "What was the motivation for rebuilding the largest Nordic electronic retail website in Next.js, what did we learn and how do you go about making such a change in a larger organization?",
     date: "2025-05-21",
