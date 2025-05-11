@@ -60,6 +60,7 @@ export const config = {
     "/demos/:path*",
     "/reactparis/:path*",
     "/refill/:path*",
+    "/ndcoslo/:path*",
     "/",
   ],
 };

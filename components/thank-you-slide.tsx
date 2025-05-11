@@ -1,10 +1,14 @@
 import Image, { StaticImageData } from "next/image";
+import { PropsWithChildren } from "react";
 
 type Props = {
   backgroundImage?: StaticImageData;
 };
 
-export const ThankYouSlide = ({ backgroundImage }: Props) => {
+export const ThankYouSlide = ({
+  backgroundImage,
+  children,
+}: PropsWithChildren<Props>) => {
   // To yyyy-MM-dd string
   return (
     <div className="flex flex-col h-full w-full justify-center items-end gap-4 px-4 md:px-32">
@@ -21,6 +25,7 @@ export const ThankYouSlide = ({ backgroundImage }: Props) => {
       <h1 className="text-4xl md:text-6xl text-center max-w-4xl md:max-w-[75%] w-full mx-auto">
         Thank you!
       </h1>
+      {children}
     </div>
   );
 };

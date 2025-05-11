@@ -1,0 +1,41 @@
+import { Animate } from "@/components/animate"
+import { Column, Columns } from "@/components/columns"
+import { VideoPlayer } from "@/components/video-player"
+
+
+<Columns columns={3} className="w-[1200px] mx-auto">
+<Column className="flex flex-col">
+
+## Ecom early 2024
+
+<div className="flex-1">
+<Animate number={1}>
+<VideoPlayer width={360} height={640} cloudinaryId="nextecom/b2x-video"/>
+</Animate>
+</div>
+</Column>
+<Column className="flex flex-col">
+
+
+## Move to nextjs
+
+<div className="flex-1">
+<Animate number={1} delay={10}>
+<VideoPlayer width={360} height={640} cloudinaryId="nextecom/next-pre-cdn-video" id="next2" />
+</Animate>
+</div>
+
+</Column>
+
+<Column className="flex flex-col">
+
+## No CDN proxy
+
+<div className="flex-1">
+<Animate number={1} delay={20} className="">
+<VideoPlayer width={360} height={640} cloudinaryId="nextecom/next-100-vercel"/>
+</Animate>
+</div>
+
+</Column>
+</Columns>

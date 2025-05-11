@@ -1,0 +1,61 @@
+import BadComment1 from "@/assets/images/nextecom/bad_comment1.png"
+import BadComment2 from "@/assets/images/nextecom/bad_comment2.png"
+import NoPrices from "@/assets/images/nextecom/missing_prices.png"
+import PageSpeedElkjopMobile from "@/assets/images/nextecom/page-speed-elkjop-mobile.png"
+import SpeedInsightsDesktop from "@/assets/images/nextecom/speed-insights-desktop.png"
+import SpeedInsightsMobile from "@/assets/images/nextecom/speed-insights-mobile.png"
+import { Animate } from "@/components/animate"
+import { Column, Columns } from "@/components/columns"
+import { Notes } from "@/components/notes"
+import { VideoPlayer } from "@/components/video-player"
+import Image from 'next/image'
+
+
+<Columns columns={2}>
+<Column>
+
+# From this
+
+<div className="flex flex-col gap-8 flex-1">
+<Image src={NoPrices} alt="Missing prices on old page" className="md:w-[80%]" />
+
+<div className="flex-1 flex flex-col gap-8">
+<Animate number={1}>
+<Image src={BadComment1} alt="Bad comments on reddit 1" />
+</Animate>
+<Animate number={2}>
+<Image src={BadComment2} alt="Bad comments on reddit 2" />
+</Animate>
+</div>
+</div>
+
+</Column>
+<Column>
+
+# To this
+
+<div className="relative">
+<Animate number={3} animationType={["in", "out"]}>
+<Image src={SpeedInsightsDesktop} alt="Desktop speed insights" className="absolute top-0 left-0"/>
+</Animate>
+
+<Animate number={4} animationType={["in", "out"]}>
+<Image src={SpeedInsightsMobile} alt="Mobile speed insights" className="absolute top-0 left-0" />
+</Animate>
+
+<Animate number={5}>
+<Image src={PageSpeedElkjopMobile} alt="Mobile PageSpeed" className="absolute top-0 left-0" />
+</Animate>
+</div>
+
+</Column>
+</Columns>
+<Notes>
+
+- Welcome & recap from last year’s talk.
+- Show “before” and “after” scores for Core Web Vitals.
+- Highlight the difference in site experience (3 videos).
+- Mention 75% task time improvement.
+- Set expectation: going deeper technically this time.
+
+</Notes>

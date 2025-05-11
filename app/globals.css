@@ -46,6 +46,32 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  /* Animations */
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  --animate-accordion: accordion 1s ease-out infinite;
+  @keyframes accordion {
+    0% {
+      transform: scaleY(0.1);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0.1);
+    }
+  }
 }
 
 /*

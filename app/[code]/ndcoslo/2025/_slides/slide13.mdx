@@ -1,0 +1,33 @@
+import Edge from '@/assets/images/nextecom/edge.webp';
+import Routing from '@/assets/images/nextecom/routing.png';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+
+
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# Middleware is powerful
+
+</CentralContent>
+</Column>
+<Column className="flex justify-center items-center h-full">
+    <Image src={Routing} alt="Routing image" />
+</Column>
+</Columns>
+
+
+<Notes>
+
+- Not like classic middleware—more like pre-processing app.
+- Use cases:
+  - Localization without different URLs
+  - Caching dynamic reports
+  - Creating static pages based on precomputed flags
+
+</Notes>

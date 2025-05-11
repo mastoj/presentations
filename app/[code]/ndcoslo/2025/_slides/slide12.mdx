@@ -1,0 +1,42 @@
+import EdgeExplained from '@/assets/images/nextecom/edge-explained.png';
+import Edge from '@/assets/images/nextecom/edge.webp';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Hourglass } from 'lucide-react';
+import Image from 'next/image';
+
+
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# Static rendering wins
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center">
+<div className="grid grid-flow-col items-center w-full h-[80%] overflow-hidden auto-cols-[100%]">
+<Animate number={0} animationType={["out"]}>
+    <Image src={Edge} alt="Edge" className="" />
+    </Animate>
+<Animate number={1} delay={0.2}>
+    <Image src={EdgeExplained} alt="Edge explained" className="w-full md:w-[70%]" />
+    </Animate>
+</div>
+</Column>
+</Columns>
+
+
+<Notes>
+
+- Fastest page = one that doesn’t render at request.
+- Most pages static (except search).
+- Strategy: cached PLPs + hydrate for freshness.
+- Waiting for Partial Prerendering to streamline further.
+- Reminder: dynamic ≠ client-rendered necessarily.
+
+</Notes>

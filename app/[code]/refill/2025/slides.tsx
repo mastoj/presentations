@@ -31,7 +31,7 @@ import { ComponentType, createElement } from "react";
 type SlideProps = {
   initialSlide: number;
 };
-export const ReactParisSlides = ({ initialSlide }: SlideProps) => {
+export const RefillSlides = ({ initialSlide }: SlideProps) => {
   const presentationUrl = `https://presentations.2mas.xyz/refill/2025`;
   // eslint-disable-next-line react/display-name
   const c = (component: ComponentType) => () => createElement(component);
