@@ -1,10 +1,10 @@
-import SellTheProblem from "@/assets/images/nextecom/sell-the-problem.webp";
+import Turborepo from "@/assets/images/logos/turborepo.png";
 import { Column, Columns } from "@/components/columns";
 import { CentralContent } from "@/components/layouts";
 import { Notes } from "@/components/notes";
 import { Handshake } from 'lucide-react';
 import Image from 'next/image';
-
+import { Animate } from "@/components/animate";
 
 <Columns columns={2}>
 
@@ -13,11 +13,17 @@ import Image from 'next/image';
 
 # Turborepo
 
+<div className="flex items-start gap-2 text-left">
+- Monorepo tool to scale structure and caching.
+- Easy local proxy setup + great Vercel integration.
+- Not Vercel-only—agnostic but nicely integrated.
+</div>
+
 </CentralContent>
 </Column>
 <Column>
 <CentralContent>
-    <Handshake className="w-72 h-72" />
+<Image src={Turborepo} alt="Turborepo" unoptimized className="w-[80%] max-w-[400px] mx-auto" />
 </CentralContent>
 </Column>
 </Columns>
