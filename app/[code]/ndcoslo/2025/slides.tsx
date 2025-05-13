@@ -23,6 +23,7 @@ import Slide9 from "./_slides/slide9.mdx";
 import TitleSlide from "@/slides/title-slide";
 import { ComponentType, createElement } from "react";
 import Cards from "@/components/cards";
+import { CodeTime } from "@/components/code-time";
 
 type SlideProps = {
   initialSlide: number;
@@ -58,6 +59,7 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
     c(Slide12),
     c(Slide13), // Routing
     c(Slide14),
+    () => <CodeTime />,
     () => (
       <ThankYouSlide backgroundImage={background}>
         <Cards />
