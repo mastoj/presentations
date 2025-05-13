@@ -1,0 +1,27 @@
+import { CentralContent } from "@/components/layouts"
+import { Notes } from "@/components/notes"
+import PageSpeedGoal from "@/assets/images/nextecom/pagespeed-goal.png"
+import { Column, Columns } from "@/components/columns"
+import Image from 'next/image'
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# A fast site is a good site!
+
+</CentralContent>
+</Column>
+<Column>
+<CentralContent>
+<Image src={PageSpeedGoal} alt="A fast site is a good site!" className="w-full mx-auto" />
+  </CentralContent>
+</Column>
+</Columns>
+
+<Notes>
+
+- A fast site is a good site!
+- A fast site means more revenue.
+
+</Notes>

@@ -11,7 +11,10 @@ import Slide13 from "./_slides/slide13.mdx";
 import Slide14 from "./_slides/slide14.mdx";
 import Slide2 from "./_slides/slide2.mdx";
 import Slide3 from "./_slides/slide3.mdx";
-import Slide4 from "./_slides/slide4.mdx";
+import Slide3_1 from "./_slides/slide3.1.mdx";
+import Slide3_2 from "./_slides/slide3.2.mdx";
+import Slide4_0 from "./_slides/slide4.0.mdx";
+import Slide4_1 from "./_slides/slide4.1.mdx";
 import Slide5 from "./_slides/slide5.mdx";
 import Slide6 from "./_slides/slide6.mdx";
 import Slide7 from "./_slides/slide7.mdx";
@@ -41,7 +44,10 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
     c(SlideVideo),
     c(Slide2),
     c(Slide3),
-    c(Slide4),
+    c(Slide3_1),
+    c(Slide3_2),
+    c(Slide4_0),
+    c(Slide4_1),
     c(Slide5),
     c(Slide6),
     c(Slide7),
