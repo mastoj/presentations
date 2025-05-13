@@ -5,6 +5,7 @@ import { CentralContent } from "@/components/layouts";
 import { Notes } from "@/components/notes";
 import Image from 'next/image';
 import Link from 'next/link';
+import { Toggle } from "@/components/toggle";
 
 <Columns columns={2}>
 <Column>
@@ -12,12 +13,12 @@ import Link from 'next/link';
 
 # Feature flags
 
-<Link href="/demos/layout" target="_blank">Pages and layouts demo</Link>
-
 </CentralContent>
 </Column>
-<Column className="flex justify-center items-center h-full">
-    <Image src={Layouts} alt="Layouts" className='w-full' width="800" height="800" />
+<Column className="flex flex-col justify-center items-center h-full gap-2">
+    <Toggle on />
+    <Toggle />
+    <Toggle />
 </Column>
 </Columns>
 

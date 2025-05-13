@@ -1,11 +1,24 @@
+import SpeedInsights from "@/assets/images/nextecom/speed-insights-ndcoslo.png";
 import { CentralContent } from "@/components/layouts"
 import { Notes } from "@/components/notes"
+import { Column, Columns } from "@/components/columns";
+import Image from 'next/image';
 
+<Columns columns={2}>
+<Column>
 <CentralContent>
 
 # Keep an eye on your vitals
 
 </CentralContent>
+</Column>
+
+<Column>
+<CentralContent>
+  <Image src={SpeedInsights} alt="Keep an eye on your vitals" className="w-full mx-auto" />
+</CentralContent>
+</Column>
+</Columns>
 
 <Notes>
 
