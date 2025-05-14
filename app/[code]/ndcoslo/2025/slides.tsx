@@ -24,6 +24,7 @@ import TitleSlide from "@/slides/title-slide";
 import { ComponentType, createElement } from "react";
 import Cards from "@/components/cards";
 import { CodeTime } from "@/components/code-time";
+import Link from "next/link";
 
 type SlideProps = {
   initialSlide: number;
@@ -59,7 +60,16 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
     c(Slide12),
     c(Slide13), // Routing
     c(Slide14),
-    () => <CodeTime />,
+    () => (
+      <CodeTime>
+        <CodeTime.Title>Code time</CodeTime.Title>
+        <CodeTime.SubTitle>
+          <Link href="https://github.com/mastoj/next-demo">
+            https://github.com/mastoj/next-demo
+          </Link>
+        </CodeTime.SubTitle>
+      </CodeTime>
+    ),
     () => (
       <ThankYouSlide backgroundImage={background}>
         <Cards />
