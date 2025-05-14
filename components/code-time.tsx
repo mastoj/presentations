@@ -13,11 +13,13 @@ const CodeTime = ({ children }: PropsWithChildren) => {
   return (
     <>
       <MatrixRain />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="bg-black/50 px-8 py-4 rounded flex flex-col gap-2 items-center justify-center">
-          {children}
+      {children && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="bg-black/50 px-8 py-4 rounded flex flex-col gap-2 items-center justify-center">
+            {children}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
