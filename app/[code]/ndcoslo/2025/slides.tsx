@@ -9,6 +9,7 @@ import Slide11 from "./_slides/slide11.mdx";
 import Slide12 from "./_slides/slide12.mdx";
 import Slide13 from "./_slides/slide13.mdx";
 import Slide14 from "./_slides/slide14.mdx";
+import Slide15 from "./_slides/slide15.mdx";
 import Slide2 from "./_slides/slide2.mdx";
 import Slide3 from "./_slides/slide3.mdx";
 import Slide3_1 from "./_slides/slide3.1.mdx";
@@ -70,6 +71,7 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
         </CodeTime.SubTitle>
       </CodeTime>
     ),
+    c(Slide15),
     () => (
       <ThankYouSlide backgroundImage={background}>
         <Cards />

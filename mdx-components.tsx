@@ -1,6 +1,8 @@
 import type { MDXComponents } from "mdx/types";
 import * as motion from "motion/react-client";
 import { PropsWithChildren } from "react";
+import { cn } from "./lib/utils";
+import { AnimatedUL } from "./components/animated-ul";
 
 export const CustomH2 = ({ children }: { children: React.ReactNode }) => (
   <motion.h2
@@ -39,25 +41,11 @@ export const CustomBlockquote = ({
   </motion.blockquote>
 );
 
-export const CustomUL = ({ children, ...rest }: PropsWithChildren) => {
-  console.log("==> REST: ", rest);
-  return (
-    <motion.ul
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="flex flex-col gap-2 pl-6 my-6 text-lg md:text-xl list-disc"
-    >
-      {children}
-    </motion.ul>
-  );
-};
-
 export const mdxComponents = {
   h1: CustomH1,
   h2: CustomH2,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ul: (props: any) => <CustomUL {...props}>{props.children}</CustomUL>,
+  ul: (props: any) => <AnimatedUL {...props}>{props.children}</AnimatedUL>,
   blockquote: CustomBlockquote,
 };
 
