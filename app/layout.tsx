@@ -21,11 +21,35 @@ export const metadata: Metadata = {
 };
 import { FlagValues } from "flags/react";
 import { encryptFlagValues, FlagValuesType } from "flags";
+import Script from "next/script";
 
 async function ConfidentialFlagValues({ values }: { values: FlagValuesType }) {
   const encryptedFlagValues = await encryptFlagValues(values);
   return <FlagValues values={encryptedFlagValues} />;
 }
+
+// const Ahrefs = () => {
+//   return (
+//     <>
+//       <Script
+//         src="https://analytics.ahrefs.com/analytics.js"
+//         data-key="rwlSgvjWEChwwJmpP/rIKQ"
+//         async
+//       ></Script>
+//     </>
+//   );
+// };
+
+const GooleVerification = () => {
+  return (
+    <>
+      <meta
+        name="google-site-verification"
+        content="4MPryxTfeXv58y_a9eoHejRiMj4yeWiRkGxCXnibBsc"
+      />
+    </>
+  );
+};
 
 export default async function RootLayout({
   children,
@@ -47,6 +71,8 @@ export default async function RootLayout({
         <ConfidentialFlagValues
           values={{ "show-notes": showNotes, "light-theme": lightTheme }}
         />
+        {/* <Ahrefs /> */}
+        <GooleVerification />
       </body>
     </html>
   );
