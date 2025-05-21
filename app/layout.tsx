@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 };
 import { FlagValues } from "flags/react";
 import { encryptFlagValues, FlagValuesType } from "flags";
-import Script from "next/script";
 
 async function ConfidentialFlagValues({ values }: { values: FlagValuesType }) {
   const encryptedFlagValues = await encryptFlagValues(values);
