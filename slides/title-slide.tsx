@@ -6,6 +6,7 @@ type Props = {
   date: Date;
   backgroundImage?: StaticImageData;
   presentationSlug: string;
+  qrCode?: StaticImageData;
 };
 
 const TitleSlide = ({
@@ -14,6 +15,7 @@ const TitleSlide = ({
   date,
   backgroundImage,
   presentationSlug,
+  qrCode,
 }: Props) => {
   // To yyyy-MM-dd string
   const dateString = date.toLocaleDateString("sv-SE");
@@ -46,6 +48,11 @@ const TitleSlide = ({
             </a>
           </span>
         </p>
+        {qrCode && (
+          <div className="w-40 h-40 place-self-end mb-8">
+            <Image src={qrCode} alt="QR Code for the presentation" />
+          </div>
+        )}
       </div>
     </div>
   );

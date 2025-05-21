@@ -26,6 +26,7 @@ import { ComponentType, createElement } from "react";
 import Cards from "@/components/cards";
 import { CodeTime } from "@/components/code-time";
 import Link from "next/link";
+import QRCode from "./_assets/qrcode.png";
 
 type SlideProps = {
   initialSlide: number;
@@ -41,6 +42,7 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
         date={new Date(2025, 4, 21)}
         backgroundImage={background}
         presentationSlug="ndcoslo/2025"
+        qrCode={QRCode}
       />
     ),
     c(Slide1),
