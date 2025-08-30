@@ -61,6 +61,7 @@ export const config = {
     "/reactparis/:path*",
     "/refill/:path*",
     "/ndcoslo/:path*",
+    "/ndccopenhagen/:path*",
     "/",
   ],
 };

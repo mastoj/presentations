@@ -41,4 +41,25 @@ export const presentations: Presentation[] = [
     // recordingUrl: "https://www.youtube.com/watch?v=nYOAWjcRuBY",
     slidesUrl: "/ndcoslo/2025",
   },
+  {
+    id: "4",
+    event: "Vercel Ship 2025",
+    title: "Rebuilding an ecommerce site with Next.js and Vercel",
+    description: "",
+    date: "2025-06-25",
+    recordingUrl: "https://www.youtube.com/watch?v=85TRYRhBEmI",
+    slidesUrl:
+      "https://docs.google.com/presentation/d/1-Trgy-dwBdSEdBsJP7Np312FSv8Elqj8kST_b_xg7-o/edit?usp=sharing",
+  },
+  {
+    id: "5",
+    event: "NDC Copenhagen Developers Festival",
+    title:
+      "What we learned rebuilding the largest Nordic electronic retail website in Next.js?",
+    description:
+      "What was the motivation for rebuilding the largest Nordic electronic retail website in Next.js, what did we learn and how do you go about making such a change in a larger organization?",
+    date: "2025-09-11",
+    // recordingUrl: "https://www.youtube.com/watch?v=nYOAWjcRuBY",
+    slidesUrl: "/ndccopenhagen/2025",
+  },
 ];
