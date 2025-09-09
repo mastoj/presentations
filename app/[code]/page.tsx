@@ -5,7 +5,7 @@ export async function generateStaticParams() {
   return [];
 }
 
-// export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 3600; // Revalidate every hour
 
 export default function Home() {
   const title = "Tomas' presentations";
