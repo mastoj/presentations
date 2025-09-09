@@ -65,11 +65,10 @@ export default async function RootLayout({
   params: Promise<{ code: string }>;
 }) {
   const { code } = await params;
-  console.log("==> LAYOUT CODE: ", code);
   const showNotes = await flagShowNotes(code, precomputedFlags);
   const lightTheme = await flagLightTheme(code, precomputedFlags);
   const confetti = await flagConfetti(code, precomputedFlags);
-  console.log("==> FLAGS: ", { showNotes, lightTheme, confetti });
+
   const isDevelopment = process.env.NODE_ENV === "development";
   return (
     <html lang="en" className={lightTheme ? "light" : "dark"}>
@@ -80,9 +79,6 @@ export default async function RootLayout({
           {children}
           <div className="z-index-50">{isDevelopment && <VercelToolbar />}</div>
         </FlagsProvider>
-        {/* <ConfidentialFlagValues
-          values={{ "show-notes": showNotes, "light-theme": lightTheme }}
-        /> */}
         <Ahrefs />
         <GooleVerification />
         {confetti && <Confetti />}
