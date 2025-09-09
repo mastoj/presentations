@@ -1,6 +1,12 @@
 import { PresentationCard } from "../components/presentation-card";
 import { presentations } from "../data/presentations";
 
+export async function generateStaticParams() {
+  return [];
+}
+
+// export const revalidate = 3600; // Revalidate every hour
+
 export default function Home() {
   const title = "Tomas' presentations";
   return (
