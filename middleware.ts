@@ -47,6 +47,7 @@ const HandleI18nDemo = (request: NextRequest, code: string) => {
 
 export async function middleware(request: NextRequest) {
   const code = await precompute(precomputedFlags);
+  console.log("==> MIDDLEWARE CODE: ", code);
   if (request.nextUrl.pathname.startsWith("/demos/i18n")) {
     return HandleI18nDemo(request, code);
   }
@@ -63,5 +64,6 @@ export const config = {
     "/ndcoslo/:path*",
     "/ndccopenhagen/:path*",
     "/",
+    "/test",
   ],
 };

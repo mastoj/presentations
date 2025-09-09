@@ -1,9 +1,9 @@
 import { createFlagsDiscoveryEndpoint, getProviderData } from "flags/next";
-import { showNotesFlag, lightThemeFlag } from "@/lib/flags";
+import * as flags from "@/lib/flags";
 
 export const GET = createFlagsDiscoveryEndpoint(async () => {
   // your previous logic in here to gather your feature flags
-  const apiData = await getProviderData({ showNotesFlag, lightThemeFlag });
+  const apiData = await getProviderData(flags);
 
   // return the ApiData directly, without a NextResponse.json object.
   return apiData;

@@ -1,8 +1,6 @@
 import { PresentationCard } from "../components/presentation-card";
 import { presentations } from "../data/presentations";
 
-export const dynamic = "force-static";
-
 export default function Home() {
   const title = "Tomas' presentations";
   return (
