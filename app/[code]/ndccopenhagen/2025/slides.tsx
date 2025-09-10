@@ -1,5 +1,6 @@
 "use client";
 import background from "@/assets/images/nextecom/homepage.png";
+import Cards from "@/components/cards";
 import { SlideDefinition, Slideshow } from "@/components/slide-show";
 import { ThankYouSlide } from "@/components/thank-you-slide";
 import SlideVideo from "@/slides/nextecom/slide-video.mdx";
@@ -68,7 +69,11 @@ export const NdcCopenhagen2025Slides = ({ initialSlide }: SlideProps) => {
     c(Slide20),
     c(Slide21),
     c(Slide22),
-    () => <ThankYouSlide backgroundImage={background} />,
+    () => (
+      <ThankYouSlide backgroundImage={background}>
+        <Cards />
+      </ThankYouSlide>
+    ),
   ];
   return (
     <div className="flex h-full items-center relative slides ">
