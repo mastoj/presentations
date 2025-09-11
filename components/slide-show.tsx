@@ -12,7 +12,7 @@ export type SlideDefinition = () => JSX.Element;
 const links = [
   {
     title: "GitHub",
-    url: "https://github.com/mastoj",
+    url: "https://github.com/mastoj/presentations",
     icon: <SiGithub className="w-6 h-6" />,
   },
   {

@@ -40,7 +40,7 @@ export const Footer = ({
     <div className="w-full fixed bottom-0 flex justify-between p-4 z-10">
       <SlideNavigator />
 
-      <div className="flex flex-col md:flex-row gap-2 items-center text-subtle content-center">
+      <div className="flex flex-col md:flex-row gap-2 items-center text-subtle content-center z-100 p-2 bg-black/50">
         <a
           href={presentationUrl}
           className="text-green-400"
