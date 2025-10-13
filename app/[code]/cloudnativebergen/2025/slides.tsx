@@ -39,9 +39,9 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
     () => (
       <TitleSlide
         title="Learnings from One Year in Production with Next.js on Vercel"
-        date={new Date(2025, 4, 21)}
+        date={new Date(2025, 5, 28)}
         backgroundImage={background}
-        presentationSlug="ndcoslo/2025"
+        presentationSlug="cloudnativebergen/2025"
         qrCode={QRCode}
       />
     ),
