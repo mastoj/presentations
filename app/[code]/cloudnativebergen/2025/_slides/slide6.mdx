@@ -1,0 +1,38 @@
+import Turborepo from "@/assets/images/logos/turborepo.png";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Handshake } from 'lucide-react';
+import Image from 'next/image';
+import { Animate } from "@/components/animate";
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# Turborepo
+
+<div className="flex items-start gap-2 text-left">
+- Build system JavaScript and TypeScript.
+- Great monorepo support.
+- Incremental builds and good caching support.
+- Provider agnostic but great Vercel support.
+</div>
+
+</CentralContent>
+</Column>
+<Column>
+<CentralContent>
+<Image src={Turborepo} alt="Turborepo" unoptimized className="w-[80%] max-w-[400px] mx-auto" />
+</CentralContent>
+</Column>
+</Columns>
+
+<Notes>
+
+- Monorepo tool to scale structure and caching.
+- Easy local proxy setup + great Vercel integration.
+- Not Vercel-only—agnostic but nicely integrated.
+
+</Notes>

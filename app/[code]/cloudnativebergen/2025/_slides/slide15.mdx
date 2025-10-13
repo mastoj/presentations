@@ -1,0 +1,35 @@
+import Layouts from '@/assets/images/nextecom/nested-layouts-ui.avif';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Toggle } from "@/components/toggle";
+import { AnimatedUL } from "@/components/animated-ul";
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# Summary
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center items-start h-full gap-2">
+    <AnimatedUL className='ml-4 md:text-3xl gap-8'>
+        <li>High iteration speed -> quality, value and confident</li>
+        <li>For large content sites strive for static server rendered pages</li>
+        <li>Turborepo, multi-zone and Microfrontends allows you to scale delivery</li>
+        <li>Next.js middleware is the swiss army knife of Next.js</li>
+    </AnimatedUL>
+</Column>
+</Columns>
+
+<Notes>
+
+* High iteration speed is in my opinion more important that test. Testing just verifies your assumptions, but the real test is when something reaches your customer. And being able to iterate fast based on that is in my opinion more valuable.
+* For larger nextjs application I do recommend an approach where you split using zones. This gives you options around multiple teams, and also clearer boundaries between parts of the application.
+* The next.js middleware is basically where you handle everything that is not sort of given to you out of the box. Like, how do you run slightly different variants of your application from the same code base? How do you turn dynamic routes static? How do you get feature toggles to work effectively. 
+
+</Notes>

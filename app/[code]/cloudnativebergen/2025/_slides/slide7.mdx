@@ -1,0 +1,41 @@
+import FindYourApp from "@/assets/images/nextecom/find-your-app.png";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Eye, Megaphone } from 'lucide-react';
+import Image from 'next/image';
+
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# Find your applications
+
+<div className="flex items-start gap-2 text-left">
+- Enforcing separation of concerns and coupling.
+- Increases speed.
+- Might not be 100% clear upfront.
+- Use of Next.js multi zone support.
+</div>
+
+
+</CentralContent>
+</Column>
+<Column>
+<CentralContent>
+<Image src={FindYourApp} alt="Find your applications" className="w-full max-w-[400px] mx-auto" />
+</CentralContent>
+</Column>
+</Columns>
+
+<Notes>
+
+- Mistake: recreated monolith instead of separating apps.
+- Goal: 3 logical apps (storefront, my page, checkout).
+- Why? Ownership, focus, speed.
+- Use: Next.js multi-zones or Vercel Microfrontends.
+- Leads into upcoming demo.
+
+</Notes>

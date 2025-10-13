@@ -1,0 +1,40 @@
+import MiddlewareGoat from '@/assets/images/nextecom/middleware-goat.png';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+
+
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# Middleware is the goat
+
+<div className="flex items-start gap-2 text-left">
+- Localization
+- Personalization
+- Variants
+</div>
+
+</CentralContent>
+</Column>
+<Column className="flex justify-center items-center h-full">
+<CentralContent>
+    <Image src={MiddlewareGoat} alt="Middleware is the goat" className="mx-auto" />
+    </CentralContent>
+</Column>
+</Columns>
+
+
+<Notes>
+
+- Not like classic middleware—more like pre-processing app.
+- Use cases:
+  - Localization without different URLs
+  - Caching dynamic reports
+  - Creating static pages based on precomputed flags
+
+</Notes>

@@ -62,4 +62,14 @@ export const presentations: Presentation[] = [
     // recordingUrl: "https://www.youtube.com/watch?v=nYOAWjcRuBY",
     slidesUrl: "/ndccopenhagen/2025",
   },
+  {
+    id: "6",
+    event: "Cloud Native Bergen 2025",
+    title: "Learnings from One Year in Production with Next.js on Vercel",
+    description:
+      "What was the motivation for rebuilding the largest Nordic electronic retail website in Next.js, what did we learn and how do you go about making such a change in a larger organization?",
+    date: "2025-10-28",
+    // recordingUrl: "https://www.youtube.com/watch?v=nYOAWjcRuBY",
+    slidesUrl: "/cloudnativebergen/2025",
+  },
 ];

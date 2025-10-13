@@ -1,0 +1,40 @@
+import InpIsTricky from '@/assets/images/nextecom/inp-is-tricky.png';
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Hourglass } from 'lucide-react';
+import Image from 'next/image';
+
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# INP is tricky
+
+
+<div className="flex items-start gap-2 text-left">
+- Do you need perfect INP?
+- Might be a tradeoff between UX and SEO.
+- Hard navigations help metrics, especially with static rendering.
+</div>
+
+</CentralContent>
+</Column>
+<Column>
+<CentralContent>
+<Image src={InpIsTricky} alt="INP is tricky" className="w-full mx-auto" />
+</CentralContent>
+</Column>
+</Columns>
+
+
+<Notes>
+
+- CLS and LCP are solvable with SSR + images.
+- INP harder: tradeoff between UX vs SEO scores.
+- Solution: hard navigations help metrics, especially with static rendering.
+- Prefetch tuning might be future direction.
+
+</Notes>

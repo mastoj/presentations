@@ -1,0 +1,34 @@
+import Layouts from '@/assets/images/nextecom/nested-layouts-ui.avif';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Toggle } from "@/components/toggle";
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+
+# Feature flags
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center items-center h-full gap-2">
+    <Toggle on />
+    <Toggle />
+    <Toggle />
+</Column>
+</Columns>
+
+<Notes>
+
+- First time doing flags “right”
+- LaunchDarkly + Vercel Edge Config integration = 🔥
+- Custom implementation: compress flags into hex code → path segment
+- Enables static pages per flag combination
+- Would now use `flags-sdk` for better functionality
+- Leads into live **demo**
+
+</Notes>

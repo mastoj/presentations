@@ -62,6 +62,7 @@ export const config = {
     "/refill/:path*",
     "/ndcoslo/:path*",
     "/ndccopenhagen/:path*",
+    "/cloudnativebergen/:path*",
     "/",
     "/test",
   ],

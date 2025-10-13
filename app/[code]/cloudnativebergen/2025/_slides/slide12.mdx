@@ -1,0 +1,43 @@
+import EdgeExplained from '@/assets/images/nextecom/edge-explained.png';
+import Edge from '@/assets/images/nextecom/edge.webp';
+import { Animate } from "@/components/animate";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Hourglass } from 'lucide-react';
+import Image from 'next/image';
+import { Spinner } from "@/components/spinner";
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# Static rendering wins
+
+<div className="flex items-start gap-2 text-left">
+- Hard to beat cached html.
+- Ask yourself what you need to be dynamic?
+- Partial Prerendering will improve this even more.
+</div>
+
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center">
+<CentralContent>
+    <Spinner className="w-40 h-40" />
+</CentralContent>
+</Column>
+</Columns>
+
+
+<Notes>
+
+- Fastest page = one that doesn’t render at request.
+- Most pages static (except search).
+- Strategy: cached PLPs + hydrate for freshness.
+- Waiting for Partial Prerendering to streamline further.
+- Reminder: dynamic ≠ client-rendered necessarily.
+
+</Notes>

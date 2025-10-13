@@ -1,0 +1,32 @@
+import DesignSystem from "@/assets/images/nextecom/design-system.png";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Hourglass } from 'lucide-react';
+import Image from 'next/image';
+
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# Design system
+
+</CentralContent>
+</Column>
+<Column>
+<CentralContent>
+<Image src={DesignSystem} alt="Design system" className="w-[100%] mx-auto" />
+</CentralContent>
+</Column>
+</Columns>
+
+<Notes>
+
+- Legacy inconsistency vs DS-driven dev.
+- Promise to mimic old site caused divergence.
+- Inconsistency = slow dev + confusion.
+- Now: aligning fully with UX team.
+
+</Notes>

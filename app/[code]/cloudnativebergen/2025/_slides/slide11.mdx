@@ -1,0 +1,37 @@
+import { CentralContent } from "@/components/layouts"
+import { Notes } from "@/components/notes"
+import { Column, Columns } from "@/components/columns";
+import CruxTTFB from '@/assets/images/nextecom/crux-ttfb.png';
+import ProxyCdnFCP from '@/assets/images/nextecom/proxy-cdn-fcp.png';
+import ProxyCdnTTFB from '@/assets/images/nextecom/proxy-cdn-ttfb.png';
+import Image from 'next/image';
+import { Animate } from "@/components/animate";
+
+<Columns columns={2}>
+<Column>
+<CentralContent>
+# Network jumps matter
+
+</CentralContent>
+</Column>
+<Column className="flex flex-col justify-center">
+<div className="grid grid-flow-col items-center w-full h-[80%] overflow-hidden auto-cols-[100%]">
+    <Animate number={0} animationType={["out"]}>
+        <Image src={ProxyCdnTTFB} alt="TTFB" />
+        <Image src={ProxyCdnFCP} alt="fcp" />
+    </Animate>
+    <Animate number={1} delay={0.2}>
+        <Image src={CruxTTFB} alt="CRUX report of TTFB" />
+    </Animate>
+</div>
+</Column>
+</Columns>
+
+<Notes>
+
+- Proxy CDN was useful early—but now it’s a bottleneck.
+- Removing proxy = 40% TTFB improvement.
+- TTFB is a root performance metric—impacts all others.
+- Fewer jumps = faster everything.
+
+</Notes>
