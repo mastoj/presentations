@@ -32,7 +32,7 @@ type SlideProps = {
   initialSlide: number;
 };
 export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
-  const presentationUrl = `https://presentations.2mas.xyz/ndcoslo/2025`;
+  const presentationUrl = `https://presentations.2mas.xyz/cloudnativebergen/2025`;
   // eslint-disable-next-line react/display-name
   const c = (component: ComponentType) => () => createElement(component);
   const slides: SlideDefinition[] = [
