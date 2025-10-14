@@ -11,6 +11,7 @@ import Slide13 from "./_slides/slide13.mdx";
 import Slide14 from "./_slides/slide14.mdx";
 import Slide15 from "./_slides/slide15.mdx";
 import Slide2 from "./_slides/slide2.mdx";
+import Slide2_1 from "./_slides/slide2.1.mdx";
 import Slide3 from "./_slides/slide3.mdx";
 import Slide3_1 from "./_slides/slide3.1.mdx";
 import Slide3_2 from "./_slides/slide3.2.mdx";
@@ -48,6 +49,7 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
     c(Slide1),
     c(SlideVideo),
     c(Slide2),
+    c(Slide2_1),
     c(Slide3),
     c(Slide3_1),
     c(Slide3_2),

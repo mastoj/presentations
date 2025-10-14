@@ -1,0 +1,39 @@
+import FindYourApp from "@/assets/images/nextecom/find-your-app.png";
+import { Column, Columns } from "@/components/columns";
+import { CentralContent } from "@/components/layouts";
+import { Notes } from "@/components/notes";
+import { Eye, Megaphone } from 'lucide-react';
+import Image from 'next/image';
+
+
+<Columns columns={2}>
+
+<Column>
+<CentralContent>
+
+# Agenda
+
+<div className="flex items-start gap-2 text-left">
+- What was our goals?
+- Learnings
+- Demo
+</div>
+
+
+</CentralContent>
+</Column>
+<Column>
+<CentralContent>
+<Image src={FindYourApp} alt="Find your applications" className="w-full max-w-[400px] mx-auto" />
+</CentralContent>
+</Column>
+</Columns>
+
+<Notes>
+
+* This is very short what I will try to cover today.
+* First I will talk a bit about what our goals were when we started this project
+* After that I will share some learnings from the project
+* Lastly I will do a short demo of some of the key features I think is interesting
+
+</Notes>
