@@ -1,4 +1,4 @@
-import { NdcOsloSlides } from "./slides";
+import { CloudNativeBergeSlides } from "./slides";
 
 type SlideProps = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -6,7 +6,7 @@ type SlideProps = {
 const NdcOsloPage = async ({ searchParams }: SlideProps) => {
   const { slide } = await searchParams;
   const slideNumber = slide ? parseInt(slide as string, 10) : 0;
-  return <NdcOsloSlides initialSlide={slideNumber} />;
+  return <CloudNativeBergeSlides initialSlide={slideNumber} />;
 };
 
 export default NdcOsloPage;
