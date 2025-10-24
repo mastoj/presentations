@@ -45,7 +45,7 @@ const HandleI18nDemo = (request: NextRequest, code: string) => {
   return response;
 };
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const code = await precompute(precomputedFlags);
   if (request.nextUrl.pathname.startsWith("/demos/i18n")) {
     return HandleI18nDemo(request, code);

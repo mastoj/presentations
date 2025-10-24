@@ -24,15 +24,15 @@ import Slide8 from "./_slides/slide8.mdx";
 import Slide9 from "./_slides/slide9.mdx";
 import TitleSlide from "@/slides/title-slide";
 import { ComponentType, createElement } from "react";
-import Cards from "@/components/cards";
 import { CodeTime } from "@/components/code-time";
 import Link from "next/link";
 import QRCode from "./_assets/qrcode.png";
+import Image from "next/image";
 
 type SlideProps = {
   initialSlide: number;
 };
-export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
+export const CloudNativeBergeSlides = ({ initialSlide }: SlideProps) => {
   const presentationUrl = `https://presentations.2mas.xyz/cloudnativebergen/2025`;
   // eslint-disable-next-line react/display-name
   const c = (component: ComponentType) => () => createElement(component);
@@ -68,7 +68,7 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
     () => (
       <CodeTime>
         <CodeTime.Title>Code time</CodeTime.Title>
-        <CodeTime.SubTitle>
+        <CodeTime.SubTitle className="flex flex-col gap-4 items-center">
           <Link
             href="https://github.com/mastoj/next-demo"
             target="_blank"
@@ -77,13 +77,27 @@ export const NdcOsloSlides = ({ initialSlide }: SlideProps) => {
           >
             https://github.com/mastoj/next-demo
           </Link>
+          <Link
+            href="https://github.com/mastoj/next-demo"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            https://github.com/mastoj/next16-ecom
+          </Link>
         </CodeTime.SubTitle>
       </CodeTime>
     ),
     c(Slide15),
     () => (
       <ThankYouSlide backgroundImage={background}>
-        <Cards />
+        <div className="w-72 h-72 absolute bottom-18 right-4">
+          <Image
+            src={QRCode}
+            alt="QR Code for the presentation"
+            className="w-full"
+          />
+        </div>
       </ThankYouSlide>
     ),
   ];
