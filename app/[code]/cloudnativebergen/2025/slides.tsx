@@ -15,6 +15,7 @@ import Slide2_1 from "./_slides/slide2.1.mdx";
 import Slide3 from "./_slides/slide3.mdx";
 import Slide3_1 from "./_slides/slide3.1.mdx";
 import Slide3_2 from "./_slides/slide3.2.mdx";
+import Slide3_3 from "./_slides/slide3.3.mdx";
 import Slide4_0 from "./_slides/slide4.0.mdx";
 import Slide4_1 from "./_slides/slide4.1.mdx";
 import Slide5 from "./_slides/slide5.mdx";
@@ -53,6 +54,7 @@ export const CloudNativeBergeSlides = ({ initialSlide }: SlideProps) => {
     c(Slide3),
     c(Slide3_1),
     c(Slide3_2),
+    c(Slide3_3),
     c(Slide4_0),
     c(Slide4_1),
     c(Slide5),

@@ -1,0 +1,24 @@
+import { CentralContent } from "@/components/layouts"
+import { Notes } from "@/components/notes"
+import ArchitectureEvolution from "@/assets/images/nextecom/architecture-evolution.png"
+import { Column, Columns } from "@/components/columns"
+import Image from 'next/image'
+
+<CentralContent>
+
+# Architecture evolution
+
+<div>
+<Image src={ArchitectureEvolution} alt="Architecture evolution" className="w-full mx-auto" />
+</div>
+</CentralContent>
+
+<Notes>
+
+- Next, let's look at how our architecture evolved during the project.
+- First we had a large kubernetes cluster running everything.
+- Initially we moved the ecom site to vercel using nextjs, but kept the CDN
+- Later we moved the CDN to vercel as well
+- Might seem more complex, but trust me, it is not. The operation in Vercel is close to 0
+
+</Notes>
