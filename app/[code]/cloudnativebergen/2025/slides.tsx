@@ -47,10 +47,10 @@ export const CloudNativeBergeSlides = ({ initialSlide }: SlideProps) => {
         qrCode={QRCode}
       />
     ),
-    c(Slide1),
-    c(SlideVideo),
     c(Slide2),
     c(Slide2_1),
+    c(Slide1),
+    c(SlideVideo),
     c(Slide3),
     c(Slide3_1),
     c(Slide3_2),
