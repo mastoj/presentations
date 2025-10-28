@@ -29,6 +29,7 @@ import { CodeTime } from "@/components/code-time";
 import Link from "next/link";
 import QRCode from "./_assets/qrcode.png";
 import Image from "next/image";
+import Cards from "@/components/cards";
 
 type SlideProps = {
   initialSlide: number;
@@ -93,13 +94,14 @@ export const CloudNativeBergeSlides = ({ initialSlide }: SlideProps) => {
     c(Slide15),
     () => (
       <ThankYouSlide backgroundImage={background}>
-        <div className="w-72 h-72 absolute bottom-18 right-4">
+        <div className="w-72 h-72 absolute bottom-18 right-4 z-100">
           <Image
             src={QRCode}
             alt="QR Code for the presentation"
             className="w-full"
           />
         </div>
+        <Cards />
       </ThankYouSlide>
     ),
   ];
